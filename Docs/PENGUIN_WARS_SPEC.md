@@ -41,6 +41,13 @@
 * パレードの下にステージの★の合計を小さく出す（`★ 32 / 54`。開くたびにセーブから数え直す）
 * ボタンは「スタート」（→ モード選択）・「ずかん」・「じぶんペンギン」（→ 作成画面。§14.4）・「あそびかた」・「設定」・「終了」（確認ダイアログ → アプリ終了。iOS とブラウザ版では出さない）
 * モード選択の「タイトルへ」はこのタイトル画面へ戻る（Sceneは読み直さない）
+* モード選択は左右2枚のカード。見出しは「どちらで あそぶ？」
+  * 左「ひとりで」（青）: ペンギン1体・説明「解放したなかまで敵の城を攻める」・ステージの★の合計・「ステージ」ボタン
+  * 右「ともだちと」（緑）: 向かい合うペンギン2体（味方と敵の向き）・説明「全50体からドラフトして1対1の城攻め」・「部屋を作る」・コード入力と「参加する」
+  * ペンギンは開くたびに全50体から重複なしで選び直し、ぴょこぴょこ跳ねる。★はタイトルと同じ表記で、開くたびにセーブから数え直す
+  * 開くたびに登場演出を流す（約0.55秒）: 左のカードは左から、右のカードは0.1秒遅れて右から滑り込み、少し行き過ぎて戻る。滑り込み終わるまでカードのボタンは押せず、その間に画面を押すとすぐ最後の形になる（タイトルと同じく待たせない）。数値は `PenguinWarsModeSelectIntro` の「登場演出」
+  * 接続待ちから「キャンセル」で戻ったときは演出を流さない（パネルが開いたままのため）
+  * パネル本体（接続・待機の処理と作り）は共通の `ModeSelectPanel` / `ModeSelectPanelBuilder` のまま使い、`PenguinWarsSceneBuilder.ModeSelect` がペンギン大戦争の見た目に組み替える（共通基盤にゲーム固有の飾りを入れないため）
 * 「ずかん」は全キャラの紹介（`PenguinZukanPanel`）。8列のマスを縦スクロールで並べ、各マスのペンギンは歩きコマで足踏みする
   * ボタン・一覧・スクロール領域は `SafeArea`（`SafeAreaFitter`）の中に置き、背景だけ画面全体に敷く（横持ちで左上のドロップダウンや開いた一覧が内カメに被るため）
   * 上の数値・役割・能力の一覧（Dropdown）と順番ボタンで並べ替え・しぼりこみ（選択肢は `ZukanListOptions`）。開くたびに「コスト・小さい順・役割すべて・能力すべて」に戻す
@@ -813,13 +820,13 @@ Assets/_Project/Games/100_PenguinWars/
 | | DeckEditPanel | 編成画面（§8.7） |
 | | DeckIntroPanel / DeckRevealPanel / DraftPanel / DraftCard / UnitLabels | 編成発表／編成確認／ドラフト画面／カード／キャラ名・立ち姿アイコン・役割・能力の表示名 |
 | | PenguinUiSound | ボタンを押したときの音（各パネル共通） |
-| | PenguinWarsTitlePanel / PenguinWarsSettingsPanel | タイトル画面／音の設定（§2.0） |
+| | PenguinWarsTitlePanel / PenguinWarsModeSelectIntro / PenguinWarsSettingsPanel | タイトル画面／モード選択の飾りと登場演出／音の設定（§2.0） |
 | | PenguinZukanPanel / ZukanCell / ZukanDetailPanel / ZukanListOptions / UnitSpriteAnimator | ずかんの一覧／1マス／詳細／並べ替え・しぼりこみの選択肢と比較（編成画面と共通）／UI の絵のコマ送り・歩きコマの並び（§2.0） |
 | | PenguinGuidePanel | あそびかたのページ送り（§2.0） |
 | | CustomUnitPanel / CustomLookTab / CustomPartRow / CustomUnitPreview / CustomStatsTab / CustomStatRow / PartLabels | じぶんペンギンの作成画面／みためタブ／パーツ1行の◀▶／大きいプレビュー／のうりょくタブ／数値1行の[-][+]／パーツ・部位の表示名（§14.4） |
 | | CustomPickPanel | ドラフト後に3枠から1体を選ぶ（§14.5） |
 | Scripts/Online/ | PenguinWarsOnlineLink / GuestBattleView | メッセージの送受信／ゲストの表示 |
-| Editor/ | PenguinWarsSceneBuilder（.Field / .Battle / .Hud / .Controls / .Intro / .Effects / .Online / .Draft / .CustomPick / .VersusStages / .Title / .Zukan / .Guide / .Custom / .CustomStats / .StageSelect / .StageDetail / .StageResult / .Deck / .UiHelpers） | Scene生成（1ファイルが大きくならないよう partial で分割。`.VersusStages` は対戦のステージ、`.Custom` / `.CustomStats` はじぶんペンギンの作成画面、`.StageSelect` 以下は一人用、`.UiHelpers` は文字・画像・ボタン・全画面パネルを作る共通ヘルパー） |
+| Editor/ | PenguinWarsSceneBuilder（.Field / .Battle / .Hud / .Controls / .Intro / .Effects / .Online / .ModeSelect / .Draft / .CustomPick / .VersusStages / .Title / .Zukan / .Guide / .Custom / .CustomStats / .StageSelect / .StageDetail / .StageResult / .Deck / .UiHelpers） | Scene生成（1ファイルが大きくならないよう partial で分割。`.VersusStages` は対戦のステージ、`.Custom` / `.CustomStats` はじぶんペンギンの作成画面、`.StageSelect` 以下は一人用、`.UiHelpers` は文字・画像・ボタン・全画面パネルを作る共通ヘルパー） |
 | | StageSimulationMenu | 検証ツールのメニュー（§8.9） |
 | | PenguinUnitAssetGenerator / UnitLooks | 50体のアセット生成（毎回上書き）／見た目の表 |
 | Editor/Art/ | PenguinArtGenerator / FieldArtGenerator / EffectArtGenerator / AppIconGenerator / PenguinSpriteWriter | ドット絵・アプリアイコンを PNG に書き出す（ペンギンの合成は `Scripts/Art/` を呼ぶ） |

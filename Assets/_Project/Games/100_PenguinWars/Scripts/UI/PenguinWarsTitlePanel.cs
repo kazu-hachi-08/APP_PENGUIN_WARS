@@ -188,10 +188,16 @@ namespace PenguinWars
         /// <summary>ステージをクリアしてタイトルに戻るたびに増えて見えるよう、開くたびにセーブから数え直す</summary>
         private void ShowStars()
         {
+            _starsLabel.text = FormatStarTotal();
+        }
+
+        /// <summary>例: ★ 32 / 54。モード選択の「ステージ」カードでも同じ表記を使う</summary>
+        public static string FormatStarTotal()
+        {
             CampaignProgress progress = CampaignSave.Load();
             int stars = 0;
             foreach (StageDefinition stage in StageDefinitions.All) stars += StarRule.Count(progress.GetStars(stage.Id));
-            _starsLabel.text = $"★ {stars} / {StageDefinitions.All.Count * StarRule.MaxStars}";
+            return $"★ {stars} / {StageDefinitions.All.Count * StarRule.MaxStars}";
         }
 
         private void OpenSettings()
