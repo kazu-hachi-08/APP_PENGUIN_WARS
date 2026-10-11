@@ -90,3 +90,6 @@ desktop.ini
 *.ipa
 *.dSYM.zip
 *.dSYM
+
+# WebGLビルド時にプロジェクト直下へ出力されるBurstの生成物
+/[Dd]ata/

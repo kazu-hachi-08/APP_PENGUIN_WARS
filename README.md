@@ -10,11 +10,14 @@
 
 ## ▶ ブラウザで遊ぶ
 
-準備中
+**https://kazu-hachi-08.github.io/penguin-wars-web/**
+
+* PCのブラウザ（Chrome / Edge 推奨）で開く。横画面のゲームなので、スマホは横向きで
+* 公開手順: Unityで Web 向けにビルドし、出力（`index.html` / `Build/` / `StreamingAssets/`）を [penguin-wars-web](https://github.com/kazu-hachi-08/penguin-wars-web) の main に push する（GitHub Pages で公開される）
 
 ## ▶ Windows版をダウンロード
 
-**https://github.com/kazu-hachi-08/APP_PENGUIN_WARS/releases**
+**https://github.com/kazu-hachi-08/APP_PENGUIN_WARS/releases/latest**
 
 * zipを展開して exe を起動する
 * 初回に「WindowsによってPCが保護されました」と出たら「詳細情報 → 実行」で起動できる
