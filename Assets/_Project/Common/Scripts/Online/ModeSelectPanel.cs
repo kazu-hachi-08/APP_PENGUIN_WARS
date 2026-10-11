@@ -76,7 +76,7 @@ namespace MiniGame.Common.Online
 
         /// <param name="onNpcSelected">NPC戦を選んだ</param>
         /// <param name="onOnlineReady">相手と接続できた（引数は自分がホストか）</param>
-        /// <param name="onTitle">「タイトルへ」の戻り先。未指定ならミニゲーム集のタイトルへ</param>
+        /// <param name="onTitle">「タイトルへ」の戻り先。未指定ならシーンを読み直してタイトルへ</param>
         public void Show(Action onNpcSelected, Action<bool> onOnlineReady, Action onTitle = null)
         {
             _onOnlineReady = onOnlineReady;
@@ -88,7 +88,7 @@ namespace MiniGame.Common.Online
         /// <param name="onNpcSelected">NPC戦を選んだ</param>
         /// <param name="onMatchStarted">オンライン試合開始（引数は自分の席番号（ホスト=0）と総人数）</param>
         /// <param name="maxPlayers">部屋の定員</param>
-        /// <param name="onTitle">「タイトルへ」の戻り先。未指定ならミニゲーム集のタイトルへ</param>
+        /// <param name="onTitle">「タイトルへ」の戻り先。未指定ならシーンを読み直してタイトルへ</param>
         public void Show(Action onNpcSelected, Action<int, int> onMatchStarted, int maxPlayers, Action onTitle = null)
         {
             _onOnlineReady = null;

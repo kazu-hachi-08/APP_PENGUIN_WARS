@@ -5,31 +5,10 @@ namespace MiniGame.Common.Scene
     /// </summary>
     public static class SceneNames
     {
-        /// <summary>タイトル・メニュー画面</summary>
-        public const string Title = "TitleScene";
-
-        /// <summary>第1弾: 2Dサッカーゲーム</summary>
-        public const string Soccer = "SoccerScene";
-
-        /// <summary>第2弾: 2D卓球ゲーム</summary>
-        public const string TableTennis = "TableTennisScene";
-
-        /// <summary>第3弾: 2Dモルックゲーム</summary>
-        public const string Molkky = "MolkkyScene";
-
-        /// <summary>第4弾: 2Dゴルフゲーム</summary>
-        public const string Golf = "GolfScene";
-
-        /// <summary>第5弾: 2D人生ゲーム</summary>
-        public const string LifeGame = "LifeGameScene";
-
-        /// <summary>第6弾: ペンギン大戦争</summary>
+        /// <summary>ペンギン大戦争（タイトルもこのシーンの中にある）</summary>
         public const string PenguinWars = "PenguinWarsScene";
 
-        /// <summary>
-        /// 将来の追加ミニゲーム用プレースホルダー例
-        /// </summary>
-        public const string MiniGame02 = "MiniGame02Scene";
-        public const string MiniGame03 = "MiniGame03Scene";
+        /// <summary>「タイトルへ戻る」の行き先。タイトル専用のシーンは無いので、ゲームのシーンを読み直す</summary>
+        public const string Title = PenguinWars;
     }
 }

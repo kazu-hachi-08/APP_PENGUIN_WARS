@@ -6,7 +6,7 @@ using UnityEngine.UI;
 namespace MiniGame.Editor
 {
     /// <summary>
-    /// 初回のユーザー名入力ダイアログをシーンへ生成する。タイトル（縦画面 1080x1920 基準）で使う。
+    /// 初回のユーザー名入力ダイアログをシーンへ生成する。縦横どちらの基準解像度（1080x1920 / 1920x1080）にも収まる大きさにしてある。
     /// </summary>
     public static class NameEntryDialogBuilder
     {

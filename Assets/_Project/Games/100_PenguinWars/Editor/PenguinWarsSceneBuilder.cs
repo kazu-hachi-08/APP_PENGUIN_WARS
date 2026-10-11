@@ -75,6 +75,8 @@ namespace MiniGame.PenguinWars.Editor
             StageResultPanel stageResultPanel = CreateStageResultPanel(canvas, catalog);
             // 最初に見える画面なのでモード選択より手前
             PenguinWarsTitlePanel titlePanel = CreateTitlePanel(canvas, catalog, battleRunner, battleCamera);
+            // タイトルより手前・名前の確認ダイアログ（BuildDialogs）より奥
+            SetRefs(titlePanel, ("_nameEntryDialog", NameEntryDialogBuilder.Build(canvas)));
             UIDialogBuilder.BuildDialogs(canvas, uiManager);
             (BattleEventPresenter presenter, PenguinWarsAudio audio) =
                 CreateEffects(battleRunner, battleCamera, hud, bossBanner, leftCastle, rightCastle);
@@ -186,20 +188,17 @@ namespace MiniGame.PenguinWars.Editor
             return obj.AddComponent<T>();
         }
 
+        /// <summary>起動時に最初に読まれるシーンにするため、先頭（Index 0）に置く</summary>
         private static void RegisterSceneInBuildSettings(string scenePath)
         {
-            var scenes = EditorBuildSettings.scenes;
-            foreach (var s in scenes)
-            {
-                if (s.path == scenePath) return;
-            }
+            var scenes = new System.Collections.Generic.List<EditorBuildSettingsScene>(EditorBuildSettings.scenes);
+            if (scenes.Count > 0 && scenes[0].path == scenePath && scenes[0].enabled) return;
 
-            var newScenes = new EditorBuildSettingsScene[scenes.Length + 1];
-            scenes.CopyTo(newScenes, 0);
-            newScenes[scenes.Length] = new EditorBuildSettingsScene(scenePath, true);
+            scenes.RemoveAll(s => s.path == scenePath);
+            scenes.Insert(0, new EditorBuildSettingsScene(scenePath, true));
 
-            EditorBuildSettings.scenes = newScenes;
-            Debug.Log($"{LogPrefix} Build Settings に {scenePath} を登録しました。");
+            EditorBuildSettings.scenes = scenes.ToArray();
+            Debug.Log($"{LogPrefix} Build Settings の先頭に {scenePath} を登録しました。");
         }
     }
 }

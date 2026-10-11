@@ -207,7 +207,7 @@ namespace MiniGame.PenguinWars
 
         /// <summary>
         /// IsPointerOverGameObject はタッチだと指IDを渡さないと判定できず、押した瞬間のフレームでは不正確なため、
-        /// LifeGame の BoardCamera と同じく UI へのレイキャストで判定する
+        /// UI へのレイキャストで判定する
         /// </summary>
         private bool IsOverUI(Vector2 screenPosition)
         {

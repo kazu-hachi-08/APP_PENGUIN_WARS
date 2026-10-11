@@ -17,7 +17,7 @@ namespace MiniGame.Common.Core
         /// <summary>一時停止中</summary>
         Paused,
 
-        /// <summary>得点・イベント演出中（サッカーのゴール等）</summary>
+        /// <summary>得点・イベント演出中</summary>
         Event,
 
         /// <summary>ゲーム終了</summary>

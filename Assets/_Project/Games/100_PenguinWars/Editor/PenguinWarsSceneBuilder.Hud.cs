@@ -8,7 +8,7 @@ namespace MiniGame.PenguinWars.Editor
     /// <summary>Canvas と HUD（時間表示・お知らせ・中央メッセージ・ボスのHPバー・ボス登場の WARNING 帯・ポーズボタン）</summary>
     public static partial class PenguinWarsSceneBuilder
     {
-        // 横画面なのでサッカーと同じ 1920x1080 基準
+        // 横画面なので 1920x1080 基準
         private static readonly Vector2 ReferenceResolution = new Vector2(1920, 1080);
         private const float CanvasMatchWidthOrHeight = 0.5f;
 

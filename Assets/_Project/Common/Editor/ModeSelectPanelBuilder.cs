@@ -11,7 +11,7 @@ namespace MiniGame.Editor
     /// </summary>
     public static class ModeSelectPanelBuilder
     {
-        /// <param name="offlineLabel">オフライン対戦ボタンの文言（卓球: NPCと対戦 / サッカー: CPUと対戦）</param>
+        /// <param name="offlineLabel">オフライン対戦ボタンの文言（例: CPUと対戦）</param>
         public static ModeSelectPanel Create(Transform canvas, OnlineSession session, string offlineLabel)
         {
             var panelObj = UIDialogBuilder.CreateUIObject("ModeSelectPanel", canvas);
