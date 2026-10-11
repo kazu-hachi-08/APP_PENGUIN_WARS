@@ -165,10 +165,14 @@ START!（1.0秒）
 | 対戦で引き分け | DRAW | 引き分け |
 | 相手の切断 | VICTORY! | 相手が切断しました |
 
-* 対戦のスコア欄は「自分の名前 72% - 40% 相手の名前」（城の残りHP割合。名前は `SeatNames`）
-* `DRAW` は共通の `BaseGameManager.FinishGame` が対応していないので、`PenguinWarsGameManager.FinishAsDraw` で同じ手順を自前で踏む
+* 対戦のリザルトは専用パネル（`VersusResultPanel`）。上からタイトル → 城の残りHP割合「72% - 40%」→ 詳細の順に並べ、その下の左に自分・右に相手の名前（`SeatNames`）と編成10体（5列×2段）を出す。左右の間には「VS」を置く
+  * タイトルは大きく出てからポンと縮んで止まり（0.35秒）、その後に城の残りHPを 0% から数え上げる（1秒）
+  * 勝った側のペンギンは足踏みしながら1体ずつずれて跳ねる。負けた側は暗くして、やられたコマ（ノックバックのコマ）で止める。引き分けはどちらも足踏みだけ
+  * ドラフト中に切断されたときは試合がまだ無いので、編成の列は空・0% のまま出す
+  * ボタン: 「タイトル」/「もういちど対戦」（モード選択へ）
+  * 音は共通の `FinishGame` と同じ（勝ちは `SeId.GameClear`、負け・引き分けは `GameOver`）
 
-ステージのリザルトは専用パネル（§2.1 のボタン3つ）。対戦のリザルトは共通のリザルトで、リトライ（モード選択へ）またはタイトルへ戻れる。
+ステージのリザルトは専用パネル（§2.1 のボタン3つ）。対戦のリザルトも専用パネル（上記）。共通の `ResultDialog` は文字だけで、編成を並べられないため。
 クリア時は城が崩れ始めたときに勝利のジングルを鳴らすので、共通の `SeId.GameClear` は鳴らさない（失敗の `GameOver` は鳴らす）。
 
 ### 2.4 ゲーム状態（`PenguinWarsPhase`）
@@ -649,6 +653,7 @@ Data/Units/Unit_001〜050.asset（PenguinUnitData）＋ Data/PenguinUnitCatalog.
 | 敵の城が崩れる（ステージ） | 城崩れに加えて紙吹雪・勝利のジングル。崩れ終わるとすぐリザルトが画面を覆うので、崩れ始めたときに出す |
 | ★の獲得（リザルト） | ★が左から0.3秒ごとにポンと出る。今回取った★は光って跳ねる。★ごとに音の高さを上げる |
 | ベスト更新（リザルト） | `NEW RECORD!` が揺れる |
+| 対戦のリザルト | タイトルがポンと縮んで止まる → 城の残りHPを数え上げる。勝った側の編成が跳ね、負けた側は暗くしてやられたコマ（§2.3） |
 | 仲間になった（リザルト） | 「なかまになった！」カードを1体ずつ。ペンギンが歩きコマで足踏み、押すと次へ。ファンファーレ |
 | ステージ選択 | 新しく遊べるようになったマスの鍵が外れる（初めて開いたときだけ。音つき）。遊べる最新のマスは上下にふわふわ |
 | 章クリア | ボスを初めて倒してステージ選択に戻ると、次の章へ自動でスクロールして「第2章 ゆきやまの奥」の題字を出す |
@@ -815,7 +820,7 @@ Assets/_Project/Games/100_PenguinWars/
 | | BattleEventPresenter / BossEntrancePresenter / Effects/ | イベント → 演出・音／ボス登場の流れとボスBGM／煙・火花・魂・ビーム・紙吹雪（使い回しのプール） |
 | Scripts/UI/ | UnitButton / UnitButtonBar / WalletButton / CannonButton / BattleHud | 下部の操作ボタン／時間・メッセージ・お知らせ（なだれ注意） |
 | | BossHpBar / BossWarningBanner | 画面上部のボスHPバー／WARNING の帯 |
-| | StageSelectPanel / StageNode / StageDetailPanel / StageResultPanel / StageLabels | ステージ選択／マス1つ（鍵・ふわふわ）／詳細／リザルト／★・条件・タイム・特別ルール・章の名前の文字（§2.1） |
+| | StageSelectPanel / StageNode / StageDetailPanel / StageResultPanel / StageLabels / VersusResultPanel | ステージ選択／マス1つ（鍵・ふわふわ）／詳細／リザルト／★・条件・タイム・特別ルール・章の名前の文字（§2.1）／対戦のリザルト（§2.3） |
 | | StarRevealAnimator / UiWobble / UnlockRevealPanel | ★を1つずつ出す／NEW RECORD! を揺らす／なかまになった！のカード |
 | | DeckEditPanel | 編成画面（§8.7） |
 | | DeckIntroPanel / DeckRevealPanel / DraftPanel / DraftCard / UnitLabels | 編成発表／編成確認／ドラフト画面／カード／キャラ名・立ち姿アイコン・役割・能力の表示名 |
@@ -826,7 +831,7 @@ Assets/_Project/Games/100_PenguinWars/
 | | CustomUnitPanel / CustomLookTab / CustomPartRow / CustomUnitPreview / CustomStatsTab / CustomStatRow / PartLabels | じぶんペンギンの作成画面／みためタブ／パーツ1行の◀▶／大きいプレビュー／のうりょくタブ／数値1行の[-][+]／パーツ・部位の表示名（§14.4） |
 | | CustomPickPanel | ドラフト後に3枠から1体を選ぶ（§14.5） |
 | Scripts/Online/ | PenguinWarsOnlineLink / GuestBattleView | メッセージの送受信／ゲストの表示 |
-| Editor/ | PenguinWarsSceneBuilder（.Field / .Battle / .Hud / .Controls / .Intro / .Effects / .Online / .ModeSelect / .Draft / .CustomPick / .VersusStages / .Title / .Zukan / .Guide / .Custom / .CustomStats / .StageSelect / .StageDetail / .StageResult / .Deck / .UiHelpers） | Scene生成（1ファイルが大きくならないよう partial で分割。`.VersusStages` は対戦のステージ、`.Custom` / `.CustomStats` はじぶんペンギンの作成画面、`.StageSelect` 以下は一人用、`.UiHelpers` は文字・画像・ボタン・全画面パネルを作る共通ヘルパー） |
+| Editor/ | PenguinWarsSceneBuilder（.Field / .Battle / .Hud / .Controls / .Intro / .Effects / .Online / .ModeSelect / .Draft / .CustomPick / .VersusStages / .Title / .Zukan / .Guide / .Custom / .CustomStats / .StageSelect / .StageDetail / .StageResult / .VersusResult / .Deck / .UiHelpers） | Scene生成（1ファイルが大きくならないよう partial で分割。`.VersusStages` は対戦のステージ、`.Custom` / `.CustomStats` はじぶんペンギンの作成画面、`.StageSelect` 以下は一人用、`.UiHelpers` は文字・画像・ボタン・全画面パネルを作る共通ヘルパー） |
 | | StageSimulationMenu | 検証ツールのメニュー（§8.9） |
 | | PenguinUnitAssetGenerator / UnitLooks | 50体のアセット生成（毎回上書き）／見た目の表 |
 | Editor/Art/ | PenguinArtGenerator / FieldArtGenerator / EffectArtGenerator / AppIconGenerator / PenguinSpriteWriter | ドット絵・アプリアイコンを PNG に書き出す（ペンギンの合成は `Scripts/Art/` を呼ぶ） |

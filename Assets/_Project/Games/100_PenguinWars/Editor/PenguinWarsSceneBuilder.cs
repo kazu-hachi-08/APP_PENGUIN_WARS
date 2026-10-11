@@ -73,6 +73,7 @@ namespace PenguinWars.Editor
             // モード選択の「ステージ」の次に出る画面なので、モード選択より手前
             StageSelectPanel stageSelectPanel = CreateStageSelectPanel(canvas, catalog);
             StageResultPanel stageResultPanel = CreateStageResultPanel(canvas, catalog);
+            VersusResultPanel versusResultPanel = CreateVersusResultPanel(canvas, catalog);
             // 最初に見える画面なのでモード選択より手前
             PenguinWarsTitlePanel titlePanel = CreateTitlePanel(canvas, catalog, battleRunner, battleCamera);
             // タイトルより手前・名前の確認ダイアログ（BuildDialogs）より奥
@@ -93,7 +94,7 @@ namespace PenguinWars.Editor
                 ("_titlePanel", titlePanel));
             SetRefs(gameManager, ("_modeSelectPanel", online.ModeSelectPanel), ("_onlineSession", online.Session),
                 ("_onlineLink", online.Link), ("_draftPanel", draftPanel), ("_deckRevealPanel", deckRevealPanel),
-                ("_customPickPanel", customPickPanel));
+                ("_customPickPanel", customPickPanel), ("_versusResultPanel", versusResultPanel));
             SetRefs(gameManager, ("_stageSelectPanel", stageSelectPanel), ("_stageResultPanel", stageResultPanel));
             SetRefs(pauseButton, ("_gameManager", gameManager));
 
