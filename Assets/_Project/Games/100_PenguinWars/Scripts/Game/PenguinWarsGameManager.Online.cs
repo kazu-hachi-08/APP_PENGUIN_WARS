@@ -1,4 +1,5 @@
 using System.Collections;
+using PenguinWars.Common.Audio;
 using PenguinWars.Common.Core;
 using PenguinWars.Common.Online;
 using PenguinWars.Common.Profile;
@@ -24,6 +25,8 @@ namespace PenguinWars
         }
 
         private const string TimeUpMessage = "TIME UP!";
+        private const string WinTitle = "VICTORY!";
+        private const string LoseTitle = "GAME OVER";
         private const string DrawTitle = "DRAW";
         private const string WinDetail = "勝利！";
         private const string LoseDetail = "敗北...";
@@ -42,6 +45,7 @@ namespace PenguinWars
         [SerializeField] private float _versusDeckIntroDuration = 3f;
         [Tooltip("TIME UP! を見せてからリザルトを出すまでの秒数")]
         [SerializeField] private float _timeUpDuration = 1.5f;
+        [SerializeField] private VersusResultPanel _versusResultPanel;
 
         private MatchMode _mode = MatchMode.Stage;
         // オンラインでは相手の端末が止まらないので、ポーズ画面を出しても試合は止めない
@@ -120,38 +124,47 @@ namespace PenguinWars
         /// <summary>ゲストも左右反転した向きで受け取っているので、どちらの端末でも「自分 = Left」で勝敗を判定できる</summary>
         private void EndVersus(Side loser, bool isDraw)
         {
-            string score = BuildCastleSummary();
-            if (isDraw)
+            if (isDraw) ShowVersusResult(VersusOutcome.Draw, DrawTitle, DrawDetail);
+            else if (loser == Side.Right) ShowVersusResult(VersusOutcome.Win, WinTitle, WinDetail);
+            else ShowVersusResult(VersusOutcome.Lose, LoseTitle, LoseDetail);
+        }
+
+        /// <summary>
+        /// BaseGameManager.FinishGame と同じ順で状態を進め、表示だけ編成つきの専用リザルトにする（仕様書 §2.3）。
+        /// 音も FinishGame と同じ（勝ちは GameClear・それ以外は GameOver）
+        /// </summary>
+        private void ShowVersusResult(VersusOutcome outcome, string title, string detail)
+        {
+            if (AudioManager.HasInstance) AudioManager.Instance.PlaySe(outcome == VersusOutcome.Win ? SeId.GameClear : SeId.GameOver);
+            EnterResultState(outcome == VersusOutcome.Win);
+            _versusResultPanel.Show(BuildVersusContent(outcome, title, detail), RestartGame, ReturnToTitle);
+        }
+
+        /// <summary>城の残りHP割合は時間切れの判定と同じもの。ドラフト中の切断では World が無いので 0% と空の編成になる</summary>
+        private VersusResultContent BuildVersusContent(VersusOutcome outcome, string title, string detail)
+        {
+            var content = new VersusResultContent
             {
-                FinishAsDraw(score);
-                return;
-            }
-
-            bool isVictory = loser == Side.Right;
-            FinishGame(isVictory, score, isVictory ? WinDetail : LoseDetail);
-        }
-
-        /// <summary>引き分けは VICTORY! / GAME OVER のどちらでもないので専用のタイトルで出す（仕様書 §2.3）</summary>
-        private void FinishAsDraw(string score)
-        {
-            ShowCustomResult(DrawTitle, false, score, DrawDetail);
-        }
-
-        /// <summary>「自分 72% - 40% 相手」。時間切れの判定と同じく城の残りHP割合で見せる</summary>
-        private string BuildCastleSummary()
-        {
+                Outcome = outcome,
+                Title = title,
+                Detail = detail,
+                MyName = SeatNames.Get(MySeat),
+                OpponentName = SeatNames.Get(OpponentSeat),
+            };
             BattleWorld world = _battleRunner.World;
-            if (world == null) return string.Empty;
+            if (world == null) return content;
 
-            string mine = FormatCastleHp(world.GetCastle(Side.Left));
-            string theirs = FormatCastleHp(world.GetCastle(Side.Right));
-            return $"{SeatNames.Get(MySeat)} {mine} - {theirs} {SeatNames.Get(OpponentSeat)}";
+            content.MyPercent = CastlePercent(world.GetCastle(Side.Left));
+            content.OpponentPercent = CastlePercent(world.GetCastle(Side.Right));
+            content.MyDeck = world.GetDeck(Side.Left);
+            content.OpponentDeck = world.GetDeck(Side.Right);
+            return content;
         }
 
         /// <summary>切り上げにして、少しでも残っていれば 0% と出さない（落ちた城と見分けがつくように）</summary>
-        private static string FormatCastleHp(CastleState castle)
+        private static int CastlePercent(CastleState castle)
         {
-            return $"{Mathf.CeilToInt(castle.HpRatio * PercentScale)}%";
+            return Mathf.CeilToInt(castle.HpRatio * PercentScale);
         }
 
         /// <summary>
@@ -168,7 +181,7 @@ namespace PenguinWars
             HideDraftPanels();
             _hud.HideMessage();
             _audio.StopBgm();
-            FinishGame(true, BuildCastleSummary(), DisconnectedDetail);
+            ShowVersusResult(VersusOutcome.Win, WinTitle, DisconnectedDetail);
         }
 
         protected override void OnGameOver(bool isVictory)

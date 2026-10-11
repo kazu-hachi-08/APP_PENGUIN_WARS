@@ -6,7 +6,7 @@ using UnityEngine;
 namespace PenguinWars
 {
     /// <summary>
-    /// あそびかたのデモ係。GuideTopic の台本どおりに後ろの戦場（BattleRunner）へユニットを出し、LoopSeconds ごとに最初からやり直す。
+    /// あそびかた（とタイトルの後ろ）のデモ係。GuideTopic の台本どおりに後ろの戦場（BattleRunner）へユニットを出し、LoopSeconds ごとに最初からやり直す。
     /// 戦闘・演出は本番と同じ BattleWorld・View がそのまま動くので、ここは「いつ何を出すか」とデモ用の数値だけを持つ。
     /// デモは両方とも本物の城で、能力は毎回発動する（見せたい能力が確率で出ないことがないように）
     /// </summary>
@@ -30,18 +30,28 @@ namespace PenguinWars
         [SerializeField] private float _bossCastleRatio = 0.98f;
 
         private GuideTopic _topic;
+        // null でなければ、ループの頭ごとにこれで台本を作り直す（タイトルの後ろで毎回違う戦いを見せるため）
+        private Func<GuideTopic> _createTopic;
         private float _time;
         private int _nextAction;
 
         public void Play(GuideTopic topic)
         {
+            _createTopic = null;
             _topic = topic;
+            Restart();
+        }
+
+        public void PlayShuffled(Func<GuideTopic> createTopic)
+        {
+            _createTopic = createTopic;
             Restart();
         }
 
         public void Stop()
         {
             _topic = null;
+            _createTopic = null;
             _battleRunner.EndDemo();
         }
 
@@ -62,6 +72,7 @@ namespace PenguinWars
         {
             _time = 0f;
             _nextAction = 0;
+            if (_createTopic != null) _topic = _createTopic();
             _battleRunner.InitializeDemo(CustomizeSettings, CreateEnemies());
             // 0 秒目の出撃を、作り直したその場で出す（1フレーム空の戦場が見えないように）
             RunDueActions();

@@ -197,13 +197,6 @@ namespace PenguinWars
             else EndStage();
         }
 
-        /// <summary>BaseGameManager.FinishGame はタイトルが VICTORY! / GAME OVER しかないので、別のタイトルを出すときは同じ手順を自前で踏む</summary>
-        private void ShowCustomResult(string title, bool isVictory, string score, string detail)
-        {
-            EnterResultState(isVictory);
-            if (UIManager.HasInstance) UIManager.Instance.ShowResultDialog(title, score, detail, RestartGame, ReturnToTitle);
-        }
-
         /// <summary>BaseGameManager.FinishGame と同じ順で状態を進める（表示は呼び出し側が専用のものを出す）</summary>
         private void EnterResultState(bool isVictory)
         {

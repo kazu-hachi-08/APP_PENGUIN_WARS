@@ -15,7 +15,7 @@ namespace PenguinWars.Editor
     /// <summary>
     /// PenguinWarsScene を自動生成するエディタユーティリティ。
     /// Scene をコードから作ることで、2人開発での Scene コンフリクトを避ける。
-    /// 1ファイルが巨大にならないよう partial で分割している（.UiHelpers = UI 生成の共通ヘルパー、.Field = 戦場、.Battle = ユニット・戦闘、.Hud = 上部UI、.Controls = 下部の操作UI、.Intro = 編成発表、.Draft = ドラフト・編成確認、.Effects = 演出・音、.Online = オンライン対戦・モード選択、.VersusStages = 対戦のステージ、.StageSelect = 一人用のステージ選択、.StageDetail = ステージ詳細、.Deck = 編成画面、.StageResult = 一人用のリザルトと演出、.Title = タイトル・音の設定、.Zukan = ずかん、.Guide = あそびかた）
+    /// 1ファイルが巨大にならないよう partial で分割している（.UiHelpers = UI 生成の共通ヘルパー、.Field = 戦場、.Battle = ユニット・戦闘、.Hud = 上部UI、.Controls = 下部の操作UI、.Intro = 編成発表、.Draft = ドラフト・編成確認、.Effects = 演出・音、.Online = オンライン対戦・モード選択、.ModeSelect = モード選択の見た目、.VersusStages = 対戦のステージ、.StageSelect = 一人用のステージ選択、.StageDetail = ステージ詳細、.Deck = 編成画面、.StageResult = 一人用のリザルトと演出、.Title = タイトル・音の設定、.Zukan = ずかん、.Guide = あそびかた）
     /// </summary>
     public static partial class PenguinWarsSceneBuilder
     {
@@ -69,10 +69,11 @@ namespace PenguinWars.Editor
             CustomPickPanel customPickPanel = CreateCustomPickPanel(canvas);
             DeckRevealPanel deckRevealPanel = CreateDeckRevealPanel(canvas, catalog);
             // 編成発表より手前・ダイアログ（ポーズ・リザルト）より奥
-            OnlineParts online = CreateOnline(canvas, battleRunner);
+            OnlineParts online = CreateOnline(canvas, battleRunner, catalog);
             // モード選択の「ステージ」の次に出る画面なので、モード選択より手前
             StageSelectPanel stageSelectPanel = CreateStageSelectPanel(canvas, catalog);
             StageResultPanel stageResultPanel = CreateStageResultPanel(canvas, catalog);
+            VersusResultPanel versusResultPanel = CreateVersusResultPanel(canvas, catalog);
             // 最初に見える画面なのでモード選択より手前
             PenguinWarsTitlePanel titlePanel = CreateTitlePanel(canvas, catalog, battleRunner, battleCamera);
             // タイトルより手前・名前の確認ダイアログ（BuildDialogs）より奥
@@ -93,7 +94,7 @@ namespace PenguinWars.Editor
                 ("_titlePanel", titlePanel));
             SetRefs(gameManager, ("_modeSelectPanel", online.ModeSelectPanel), ("_onlineSession", online.Session),
                 ("_onlineLink", online.Link), ("_draftPanel", draftPanel), ("_deckRevealPanel", deckRevealPanel),
-                ("_customPickPanel", customPickPanel));
+                ("_customPickPanel", customPickPanel), ("_versusResultPanel", versusResultPanel));
             SetRefs(gameManager, ("_stageSelectPanel", stageSelectPanel), ("_stageResultPanel", stageResultPanel));
             SetRefs(pauseButton, ("_gameManager", gameManager));
 
