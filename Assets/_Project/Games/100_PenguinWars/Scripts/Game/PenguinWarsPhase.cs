@@ -6,7 +6,7 @@ namespace MiniGame.PenguinWars
     /// </summary>
     public enum PenguinWarsPhase
     {
-        /// <summary>ゲーム固有のタイトル画面（スタート・設定・メニューに戻る）</summary>
+        /// <summary>ゲーム固有のタイトル画面（スタート・設定・終了）</summary>
         Title,
         /// <summary>モード選択・オンラインの接続待ち（編成がまだ決まっていない）</summary>
         ModeSelect,
