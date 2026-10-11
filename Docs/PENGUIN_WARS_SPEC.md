@@ -480,6 +480,9 @@ Data/Units/Unit_001〜050.asset（PenguinUnitData）＋ Data/PenguinUnitCatalog.
 
 * 空と雪の上に、かぶと＋剣と盾の味方（青）ペンギンを大きく描いたドット絵（`AppIconGenerator`、`Sprites/AppIcon.png`、1024px）
 * Rebuild のたびに作り直し、全プラットフォーム共通のアイコン（PlayerSettings の Default Icon）に設定する
+* Android（最低 API 26）はアダプティブアイコンだけを使うので、2層に分けて設定する
+  * 背景 `AppIconBackground.png`: 空と雪（地面を高めにして、端末が外周を切り抜いても雪が見えるようにする）
+  * 前景 `AppIconForeground.png`: 透明の上に等倍のペンギンを中央に置く（切り抜かれても必ず見える中央の円に収める）
 
 ---
 
