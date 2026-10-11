@@ -77,10 +77,11 @@ namespace PenguinWars.Editor
                 icons[i].preserveAspect = true;
             }
 
-            Text stars = CreateText(panelObj.transform, "Stars", TitleStarsFontSize, CenterAnchor, TitleStarsPosition, TitleStarsSize, MessageColor);
+            RectTransform menu = CreateTitleMenu(panelObj.transform);
+            Text stars = CreateText(menu, "Stars", TitleStarsFontSize, CenterAnchor, TitleStarsPosition, TitleStarsSize, MessageColor);
 
-            Button start = CreateTitleButton(panelObj.transform, "Btn_Start", "スタート", StartButtonSize, StartButtonPosition, StartButtonColor);
-            Transform subRow = CreateTitleSubButtonRow(panelObj.transform);
+            Button start = CreateTitleButton(menu, "Btn_Start", "スタート", StartButtonSize, StartButtonPosition, StartButtonColor);
+            Transform subRow = CreateTitleSubButtonRow(menu);
             Button zukan = CreateTitleButton(subRow, "Btn_Zukan", "ずかん", TitleSubButtonSize, Vector2.zero, TitleSubButtonColor);
             Button custom = CreateTitleButton(subRow, "Btn_Custom", "じぶんペンギン", TitleSubButtonSize, Vector2.zero, TitleSubButtonColor);
             Button guide = CreateTitleButton(subRow, "Btn_Guide", "あそびかた", TitleSubButtonSize, Vector2.zero, TitleSubButtonColor);
@@ -94,16 +95,35 @@ namespace PenguinWars.Editor
             // あそびかたはタイトルの幕を閉じて戦場を見せるので、タイトルの子にせず Canvas 直下（タイトルの次）に作る
             PenguinGuidePanel guidePanel = CreateGuidePanel(canvas, battleRunner, battleCamera);
 
+            // あそびかたの係とは別に持つ。タイトルを隠すと一緒に止まり、あそびかたの台本を上書きしないように
+            var backdrop = panelObj.AddComponent<GuideDemoDirector>();
+            SetRefs(backdrop, ("_battleRunner", battleRunner));
+
             var panel = panelObj.AddComponent<PenguinWarsTitlePanel>();
             var so = new SerializedObject(panel);
             SerializedArray(so, "_paradeIcons", icons);
             so.ApplyModifiedPropertiesWithoutUndo();
+            SetRefs(panel, ("_backdropDirector", backdrop), ("_menu", menu), ("_menuGroup", menu.GetComponent<CanvasGroup>()));
             SetRefs(panel, ("_catalog", catalog), ("_logo", logo), ("_startButton", start), ("_settingsButton", settings),
                 ("_quitButton", quit), ("_settingsPanel", settingsPanel), ("_zukanButton", zukan), ("_zukanPanel", zukanPanel),
                 ("_guideButton", guide), ("_guidePanel", guidePanel), ("_starsLabel", stars),
                 ("_customButton", custom), ("_customPanel", customPanel));
             panelObj.SetActive(false);
             return panel;
+        }
+
+        /// <summary>
+        /// ★・スタート・サブボタンの入れ物。登場演出でまとめて動かし、出てくる途中は押せないようにする（CanvasGroup）。
+        /// 大きさ 0 で画面の中央に置くので、中身の座標はタイトル直下に置いていたときと同じ値のまま使える
+        /// </summary>
+        private static RectTransform CreateTitleMenu(Transform panel)
+        {
+            GameObject menuObj = UIDialogBuilder.CreateUIObject("Menu", panel);
+            RectTransform rect = menuObj.GetComponent<RectTransform>();
+            SetAnchor(rect, CenterAnchor, Vector2.zero);
+            rect.sizeDelta = Vector2.zero;
+            menuObj.AddComponent<CanvasGroup>();
+            return rect;
         }
 
         /// <summary>サブボタンの横一列。ボタンの大きさはそのまま使い、位置だけレイアウトに決めさせる</summary>

@@ -36,6 +36,8 @@
 アプリを起動すると、まずタイトル画面（`PenguinWarsTitlePanel`）が出る。ユーザー名が未設定なら、タイトルの上に名前入力（`NameEntryDialog`）を出す（対戦で相手に表示する名前のため）。
 
 * 戦場の上に半透明の幕をかけ、ロゴ「ペンギン大戦争 / PENGUIN WARS」がふわふわ揺れる。その下でランダムな5体（全50体から重複なし・開くたびに選び直す）がぴょこぴょこ跳ねる
+* 開くたびに登場演出を流す（約1.4秒）: ロゴが上から落ちてきて弾んで止まる → 5体が左から1体ずつ走ってきて並ぶ → ★・ボタンが下からせり上がる。せり上がり終わるまでボタンは押せず、その間に画面を押すとすぐ最後の形になる（何度も見る画面なので待たせない）。数値は `PenguinWarsTitlePanel` の「登場演出」
+* 幕の後ろでは、パレードの5体（味方）とランダムな敵4体が本物の戦場で戦う。あそびかたと同じデモの仕組み（`GuideDemoDirector` の `PlayShuffled`。タイトル専用の係をタイトルに付ける）で流し、台本は `TitleBattleScript`。12秒ごとに作り直し、そのたびに敵を選び直す。「スタート」で戦場を空にしてからモード選択へ進む。あそびかたから戻ったら流し直す
 * パレードの下にステージの★の合計を小さく出す（`★ 32 / 54`。開くたびにセーブから数え直す）
 * ボタンは「スタート」（→ モード選択）・「ずかん」・「じぶんペンギン」（→ 作成画面。§14.4）・「あそびかた」・「設定」・「終了」（確認ダイアログ → アプリ終了。iOS とブラウザ版では出さない）
 * モード選択の「タイトルへ」はこのタイトル画面へ戻る（Sceneは読み直さない）
@@ -798,6 +800,7 @@ Assets/_Project/Games/100_PenguinWars/
 | | PenguinWarsPhase | ゲーム固有の段階（§2.4） |
 | | KeyboardCommandInput / ICommandSink | PC のキー操作／ゲストのコマンド送り先 |
 | | GuideTopics / GuideDemoDirector | あそびかたの説明文とデモの台本／台本どおりに出撃させてループ・デモの調整値（§2.0） |
+| | TitleBattleScript | タイトルの後ろの小競り合いの台本（パレードの5体 vs ランダムな敵。§2.0） |
 | | PenguinWarsAudio / PenguinBgmGenerator | 生成SE・タイトル／プレイ／ボスBGM／仮BGMの生成 |
 | Scripts/View/ | UnitView / UnitViewPool / UnitSpriteSet / HpBarView / PlaceholderSprite | ユニットの絵・コマ選び／使い回し／コマの組／HPバー／HPバー用の単色の四角（実行時に生成） |
 | | RuntimeUnitSprites | 見た目 → 5コマの `UnitSpriteSet` を実行時に作る・捨てる（§7.2） |
