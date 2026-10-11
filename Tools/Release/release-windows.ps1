@@ -3,7 +3,7 @@
 # 使い方（リポジトリのルートで実行）:
 #   .\Tools\Release\release-windows.ps1                  # テスト版（test-20260927-1530 のような日時タグ、Pre-release扱い）
 #   .\Tools\Release\release-windows.ps1 -Version v0.1
-#   .\Tools\Release\release-windows.ps1 -Version v0.2 -Notes "ゴルフのホール追加"
+#   .\Tools\Release\release-windows.ps1 -Version v0.2 -Notes "第4章を追加"
 #
 # 前提:
 #   - UnityでWindows向けに Builds/Windows/ へビルド済みであること
@@ -14,7 +14,7 @@ param(
     [string]$Version,
     [string]$Notes = "zipを展開して exe を起動してください。`n初回に「WindowsによってPCが保護されました」と出たら「詳細情報 → 実行」で起動できます。",
     [string]$BuildDir = "Builds/Windows",
-    [string]$ZipBaseName = "APP_MINIGAME_Windows"
+    [string]$ZipBaseName = "APP_PENGUIN_WARS_Windows"
 )
 
 $ErrorActionPreference = "Stop"
@@ -47,7 +47,7 @@ $items | Compress-Archive -DestinationPath $zipPath
 if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
     Write-Host ""
     Write-Host "gh CLI が見つからないため、アップロードは手動で行ってください:"
-    Write-Host "  1. https://github.com/kazu-hachi-08/APP_MINIGAME/releases/new を開く"
+    Write-Host "  1. https://github.com/kazu-hachi-08/APP_PENGUIN_WARS/releases/new を開く"
     Write-Host "  2. タグに $Version を入力し、$zipPath をドラッグ＆ドロップして Publish"
     if ($isTest) { Write-Host "     （テスト版なので「Set as a pre-release」にチェック）" }
     exit 0
@@ -58,7 +58,7 @@ if ($isTest) { $ghArgs += "--prerelease" }
 gh release create @ghArgs
 # ghの失敗は例外にならないため明示的に止める（公開失敗時に古いテスト版まで消さないように）
 if ($LASTEXITCODE -ne 0) { Write-Error "リリース作成に失敗しました。" }
-Write-Host "公開完了: https://github.com/kazu-hachi-08/APP_MINIGAME/releases/tag/$Version"
+Write-Host "公開完了: https://github.com/kazu-hachi-08/APP_PENGUIN_WARS/releases/tag/$Version"
 
 # テスト版は最新1件だけ残し、一覧とタグが溜まり続けないようにする
 if ($isTest) {
