@@ -1,5 +1,5 @@
 @echo off
-rem Double-click to publish a test build (Pre-release) to GitHub Releases.
+rem Double-click to publish a test build to GitHub Releases (becomes releases/latest).
 rem Build folder is expected next to the repo: <repo>\..\APP_PENGUIN_WARS_EXE
 rem ASCII only: cmd.exe misparses UTF-8 Japanese in .bat files.
 

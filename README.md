@@ -20,7 +20,7 @@
 
 * zipを展開して exe を起動する
 * 初回に「WindowsによってPCが保護されました」と出たら「詳細情報 → 実行」で起動できる
-* `test-` で始まるものはテスト版（Pre-release）
+* 中身は `Tools/Release/release-windows-test.bat` で公開した最新のテスト版（`test-日時` タグ）
 * 公開手順: `Tools/Release/release-windows.ps1` の先頭コメントを参照
 
 ---

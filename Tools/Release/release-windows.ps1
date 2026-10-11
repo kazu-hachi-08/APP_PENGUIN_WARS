@@ -1,7 +1,7 @@
 ﻿# Windowsビルドをzip化し、GitHub Releasesに公開する。
 #
 # 使い方（リポジトリのルートで実行）:
-#   .\Tools\Release\release-windows.ps1                  # テスト版（test-20260927-1530 のような日時タグ、Pre-release扱い）
+#   .\Tools\Release\release-windows.ps1                  # テスト版（test-20260927-1530 のような日時タグ。releases/latest がこれを指す）
 #   .\Tools\Release\release-windows.ps1 -Version v0.1
 #   .\Tools\Release\release-windows.ps1 -Version v0.2 -Notes "第4章を追加"
 #
@@ -19,7 +19,7 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-# バージョン未指定はテスト版扱い。Pre-releaseにすることで releases/latest は正式版を指したままにする
+# バージョン未指定はテスト版扱い。通常のリリースとして出し、README の releases/latest が常に最新のテスト版を指すようにする
 $isTest = [string]::IsNullOrEmpty($Version)
 if ($isTest) { $Version = "test-" + (Get-Date -Format "yyyyMMdd-HHmm") }
 
@@ -49,12 +49,10 @@ if (-not (Get-Command gh -ErrorAction SilentlyContinue)) {
     Write-Host "gh CLI が見つからないため、アップロードは手動で行ってください:"
     Write-Host "  1. https://github.com/kazu-hachi-08/APP_PENGUIN_WARS/releases/new を開く"
     Write-Host "  2. タグに $Version を入力し、$zipPath をドラッグ＆ドロップして Publish"
-    if ($isTest) { Write-Host "     （テスト版なので「Set as a pre-release」にチェック）" }
     exit 0
 }
 
 $ghArgs = @($Version, $zipPath, "--title", $Version, "--notes", $Notes)
-if ($isTest) { $ghArgs += "--prerelease" }
 gh release create @ghArgs
 # ghの失敗は例外にならないため明示的に止める（公開失敗時に古いテスト版まで消さないように）
 if ($LASTEXITCODE -ne 0) { Write-Error "リリース作成に失敗しました。" }
