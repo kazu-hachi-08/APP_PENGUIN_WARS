@@ -1,8 +1,8 @@
-# ミニゲーム：ペンギン大戦争 仕様書
+# ペンギン大戦争 仕様書
 
 ## 1. 概要
 
-「週末2人開発 2Dミニゲームプロジェクト」の長期で作り込む大型タイトル（番号100）。にゃんこ大戦争風の横スクロール型タワーディフェンス。ペンギンを出撃させて敵の大群を押し返し、敵の城を落とす。
+週末2人開発で長期的に作り込む単独アプリ（もとは「週末2人開発 2Dミニゲームプロジェクト」の番号100。リポジトリ `APP_MINIGAME` から切り出した）。にゃんこ大戦争風の横スクロール型タワーディフェンス。ペンギンを出撃させて敵の大群を押し返し、敵の城を落とす。
 
 | 項目 | 内容 |
 | --- | --- |
@@ -15,7 +15,7 @@
 | 対象プラットフォーム | Android / iPhone（PCはマウス＋キーボードで確認用・ブラウザ版） |
 | エンジン / 言語 | Unity / C# |
 
-ソースは `Assets/_Project/Games/100_PenguinWars/`。Sceneは他のゲームと同じく `Tools > MiniGame > Rebuild PenguinWars`（`PenguinWarsSceneBuilder`）でコードから生成する。キャラのデータとドット絵も同じメニューでまとめて作り直す（§11.3）。
+ソースは `Assets/_Project/Games/100_PenguinWars/`。Sceneは `Tools > MiniGame > Rebuild PenguinWars`（`PenguinWarsSceneBuilder`）でコードから生成する。キャラのデータとドット絵も同じメニューでまとめて作り直す（§11.3）。
 
 ### 1.1 モード
 
@@ -33,12 +33,12 @@
 
 ### 2.0 タイトル
 
-メニューからペンギン大戦争を選ぶと、まずゲーム固有のタイトル画面（`PenguinWarsTitlePanel`）が出る。
+アプリを起動すると、まずタイトル画面（`PenguinWarsTitlePanel`）が出る。ユーザー名が未設定なら、タイトルの上に名前入力（`NameEntryDialog`）を出す（対戦で相手に表示する名前のため）。
 
 * 戦場の上に半透明の幕をかけ、ロゴ「ペンギン大戦争 / PENGUIN WARS」がふわふわ揺れる。その下でランダムな5体（全50体から重複なし・開くたびに選び直す）がぴょこぴょこ跳ねる
 * パレードの下にステージの★の合計を小さく出す（`★ 32 / 54`。開くたびにセーブから数え直す）
-* ボタンは「スタート」（→ モード選択）・「ずかん」・「じぶんペンギン」（→ 作成画面。§14.4）・「あそびかた」・「設定」・「メニューに戻る」（→ 共通のタイトル画面）
-* モード選択の「タイトルへ」は、共通のタイトル画面ではなくこのタイトル画面へ戻る（Sceneは読み直さない）
+* ボタンは「スタート」（→ モード選択）・「ずかん」・「じぶんペンギン」（→ 作成画面。§14.4）・「あそびかた」・「設定」・「終了」（確認ダイアログ → アプリ終了。iOS とブラウザ版では出さない）
+* モード選択の「タイトルへ」はこのタイトル画面へ戻る（Sceneは読み直さない）
 * 「ずかん」は全キャラの紹介（`PenguinZukanPanel`）。8列のマスを縦スクロールで並べ、各マスのペンギンは歩きコマで足踏みする
   * ボタン・一覧・スクロール領域は `SafeArea`（`SafeAreaFitter`）の中に置き、背景だけ画面全体に敷く（横持ちで左上のドロップダウンや開いた一覧が内カメに被るため）
   * 上の数値・役割・能力の一覧（Dropdown）と順番ボタンで並べ替え・しぼりこみ（選択肢は `ZukanListOptions`）。開くたびに「コスト・小さい順・役割すべて・能力すべて」に戻す
@@ -433,7 +433,7 @@ Data/Units/Unit_001〜050.asset（PenguinUnitData）＋ Data/PenguinUnitCatalog.
 
 ### 7.2 ペンギンの見た目
 
-ドット絵はコードで生成する（他のゲームと同じ方式）。50体を手描きせず、**基本ペンギン＋パーツの組み合わせ**で作る。1キャラに付けられるのは頭・手・背中が1つずつ。
+ドット絵はコードで生成する。50体を手描きせず、**基本ペンギン＋パーツの組み合わせ**で作る。1キャラに付けられるのは頭・手・背中が1つずつ。
 
 * 合成（`PenguinFrameComposer` / `PenguinBodyPatterns` / `PenguinPartPatterns` / `PenguinPalette`）は実行時にも使うので `Scripts/Art/`（namespace `MiniGame.PenguinWars.Art`）に置く。PNG に書き出す `PenguinArtGenerator` / `PenguinSpriteWriter` は `Editor/Art/`
 * 50体は `Rebuild PenguinWars` で PNG にする。じぶんペンギンはパーツの組み合わせが多すぎて PNG にできないので、作成画面と対戦開始時に `RuntimeUnitSprites.Build` で `Texture2D` に直接描く（同じ合成・同じ PPU・足元中央のピボット）
@@ -601,7 +601,7 @@ Data/Units/Unit_001〜050.asset（PenguinUnitData）＋ Data/PenguinUnitCatalog.
 * Battle は `noEngineReferences` で `JsonUtility` が使えないので、自前の小さな `MiniJson` で読み書きする
 * 読めない・壊れた JSON は空で始める。知らない項目・定義表から消えたステージ ID は読み飛ばす（古いセーブもそのまま読める）
 * 「最後に遊んだステージ」は出撃した時点で保存し、ステージ選択はその章から開く
-* セーブを消すときは `Edit > Clear All PlayerPrefs`（他のゲームの設定も消える）
+* セーブを消すときは `Edit > Clear All PlayerPrefs`（音量・ユーザー名・じぶんペンギンも消える）
 
 ### 8.9 検証ツール（`Tools > MiniGame > PenguinWars > Simulate Stages`）
 
@@ -737,7 +737,7 @@ BattleWorld.Step … 敵の出現・ボスの条件・敵の砲はここで進�
 PenguinWarsGameManager.Stage … 勝敗 → StageResult → StarRule（★）→ CampaignProgress に記録 → CampaignSave → リザルト
 ```
 * `Battle` は独立した asmdef（`noEngineReferences`）。ScriptableObject は参照せず、SO → `UnitStats` に変換して渡す。乱数は `System.Random`（シード指定可能）
-* 共通基盤（`Assets/_Project/Common/`）への変更はタイトル登録・画面向き（横）・シーン名と、`AudioManager` の BGM だけ OFF（`IsBgmOff`）・`UIDialogBuilder.CreateVolumeSlider` の公開だけ
+* 共通基盤（`Assets/_Project/Common/`）はミニゲーム集から持ち込んだもの。ペンギン大戦争のために変えたのは画面向き（横固定）・シーン名と、`AudioManager` の BGM だけ OFF（`IsBgmOff`）・`UIDialogBuilder.CreateVolumeSlider` の公開だけ
 
 ### 11.2 フォルダ
 
