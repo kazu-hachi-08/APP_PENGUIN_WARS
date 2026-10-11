@@ -19,8 +19,9 @@ namespace PenguinWars.Common.Core
 
         private void InitializeApplication()
         {
-            // フレームレート設定
-            Application.targetFrameRate = _targetFrameRate;
+            // ブラウザは -1（ブラウザの描画タイミングに任せる）にする。
+            // 値を指定するとフレームの間隔が不揃いになり、通信の受け取りも乱れるため（Unity の推奨も -1）
+            Application.targetFrameRate = Application.platform == RuntimePlatform.WebGLPlayer ? -1 : _targetFrameRate;
 
             // スリープ抑制（スマホ実機向け）
             if (_neverSleep)

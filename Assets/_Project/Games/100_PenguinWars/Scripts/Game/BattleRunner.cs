@@ -24,7 +24,7 @@ namespace PenguinWars
         [SerializeField] private FieldBackdrop _backdrop;
         [Tooltip("オンライン対戦のステージ。ドラフト後にホストがこの中から抽選する（仕様書 §3.4）")]
         [SerializeField] private PenguinStageData[] _versusStages;
-        [Tooltip("ゲストが前回の位置から届いた位置まで動かす秒数。ホストの送信間隔（PenguinWarsOnlineLink）と同じにする")]
+        [Tooltip("ゲストが前回の位置から届いた位置まで動かす最短の秒数。届くのが遅れたらその間隔をかける。ホストの送信間隔（PenguinWarsOnlineLink）と同じにする")]
         [SerializeField] private float _guestInterpolationTime = 1f / 15f;
 
         private BattleWorld _world;

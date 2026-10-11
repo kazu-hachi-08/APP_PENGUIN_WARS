@@ -23,8 +23,17 @@ namespace PenguinWars.Battle
         // 毎回作らないよう使い回す
         private readonly HashSet<int> _receivedIds = new HashSet<int>();
         private readonly List<int> _goneIds = new List<int>();
+        /// <summary>
+        /// 届く間隔がこれより空いたら補間せず届いた位置へ置く。ブラウザ版（WebSocket = TCP）は詰まると
+        /// まとめて届くので、止まっていた間の移動を短い補間で動かすとユニットが速く走ったように見えるため
+        /// </summary>
+        private const float MaxInterpolationGap = 0.25f;
+
         // 0=前回の位置、1=届いた位置。全ユニットが同じ時点の状態なので1つで足りる
         private float _progress = 1f;
+        // 前回届いてからの経過秒数と、それで決めた今回の補間秒数
+        private float _sinceApply;
+        private float _duration;
 
         private float FieldLength => _world.Settings.FieldLength;
 
@@ -44,13 +53,21 @@ namespace PenguinWars.Battle
             ApplySide(Side.Left, snapshot.Sides[(int)Side.Left]);
             ApplySide(Side.Right, snapshot.Sides[(int)Side.Right]);
             ApplyUnits(snapshot.Units);
-            _progress = 0f;
+            // 同じフレームにまとめて届いた2つ目以降は経過0になるので、最初の1つが測った間隔を引き継ぐ
+            if (_sinceApply > 0f) _duration = _sinceApply;
+            _sinceApply = 0f;
+            _progress = _duration > MaxInterpolationGap ? 1f : 0f;
         }
 
-        /// <param name="interpolationTime">前回の位置から届いた位置まで動かす秒数。ホストの送信間隔と同じにする</param>
+        /// <param name="interpolationTime">
+        /// 補間にかける最短の秒数。ホストの送信間隔と同じにする。
+        /// 実際に届いた間隔がこれより長ければその間隔をかけて動かし、ホストと同じ速さに見せる
+        /// </param>
         public void Advance(float deltaTime, float interpolationTime)
         {
-            _progress = interpolationTime > 0f ? Math.Min(1f, _progress + deltaTime / interpolationTime) : 1f;
+            _sinceApply += deltaTime;
+            float duration = Math.Max(_duration, interpolationTime);
+            _progress = duration > 0f ? Math.Min(1f, _progress + deltaTime / duration) : 1f;
             foreach (Track track in _tracks.Values)
             {
                 track.Unit.X = track.FromX + (track.ToX - track.FromX) * _progress;

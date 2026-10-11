@@ -215,6 +215,56 @@ namespace PenguinWars.Battle.Tests
         }
 
         [Test]
+        public void GuestMirror_LateSnapshot_MovesOverActualGap()
+        {
+            BattleWorld host = CreateVersus(300f);
+            host.Enqueue(BattleCommand.Spawn(Side.Left, 0));
+            host.Step(StepTime);
+            BattleWorld guest = CreateGuestWorld(host);
+            var mirror = new GuestWorldMirror(guest, no => Melee(no));
+            var snapshot = new BattleSnapshot();
+            snapshot.Capture(host);
+            mirror.Apply(snapshot);
+            float fromX = guest.Units[0].X;
+
+            // 送信間隔(0.1秒)より遅れて0.2秒後に届いた。0.2秒かけて動かすので、0.1秒後は半分
+            Run(host, 0.2f);
+            snapshot.Capture(host);
+            mirror.Advance(0.2f, 0.1f);
+            mirror.Apply(snapshot);
+            mirror.Advance(0.1f, 0.1f);
+
+            float toX = FieldLength - host.Units[0].X;
+            Assert.Greater(System.Math.Abs(toX - fromX), XTolerance);
+            Assert.AreEqual((fromX + toX) / 2f, guest.Units[0].X, XTolerance);
+        }
+
+        [Test]
+        public void GuestMirror_StalledSnapshots_PlaceWithoutInterpolation()
+        {
+            BattleWorld host = CreateVersus(300f);
+            host.Enqueue(BattleCommand.Spawn(Side.Left, 0));
+            host.Step(StepTime);
+            BattleWorld guest = CreateGuestWorld(host);
+            var mirror = new GuestWorldMirror(guest, no => Melee(no));
+            var snapshot = new BattleSnapshot();
+            snapshot.Capture(host);
+            mirror.Apply(snapshot);
+
+            // 通信が1秒詰まり、2つまとめて同じフレームに届いた。止まっていた分を急いで走らせず、最新の位置へ置く
+            Run(host, 0.9f);
+            snapshot.Capture(host);
+            mirror.Advance(1f, 0.1f);
+            mirror.Apply(snapshot);
+            Run(host, 0.1f);
+            snapshot.Capture(host);
+            mirror.Apply(snapshot);
+            mirror.Advance(0.01f, 0.1f);
+
+            Assert.AreEqual(FieldLength - host.Units[0].X, guest.Units[0].X, XTolerance);
+        }
+
+        [Test]
         public void MirrorEvent_SwapsSideAndX()
         {
             var hostEvent = new BattleEvent(BattleEventType.CastleDestroyed, Side.Right, BattleEvent.CastleId, FieldLength);
