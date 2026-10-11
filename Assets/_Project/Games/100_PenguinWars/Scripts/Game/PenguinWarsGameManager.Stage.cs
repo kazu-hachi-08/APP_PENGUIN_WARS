@@ -1,9 +1,9 @@
 using System;
-using MiniGame.Common.Audio;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Common.Audio;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// 一人用のステージモード: ステージ選択 → 詳細 → 編成発表 → プレイ → ★判定・保存 → リザルト。
@@ -106,7 +106,7 @@ namespace MiniGame.PenguinWars
             ShowStageResult(false, new StageResultContent { Title = StageFailedTitle, Detail = $"撃破 {result.KillCount}体" }, null);
         }
 
-        /// <summary>BaseMiniGameManager.FinishGame と同じ状態の進め方をして、表示だけ専用のリザルトにする</summary>
+        /// <summary>BaseGameManager.FinishGame と同じ状態の進め方をして、表示だけ専用のリザルトにする</summary>
         private void ShowStageResult(bool isClear, StageResultContent content, Action onNext)
         {
             // クリアは城が崩れ始めたときに勝利のジングルを鳴らしている（BattleEventPresenter）ので、ここでは重ねない

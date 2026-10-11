@@ -1,8 +1,8 @@
-using MiniGame.Common.Online;
-using MiniGame.Editor;
+using PenguinWars.Common.Online;
+using PenguinWars.Common.Editor;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>オンライン対戦（接続・同期）とモード選択パネル。NetworkManager は OnlineSession が実行時に作るので Scene には置かない</summary>
     public static partial class PenguinWarsSceneBuilder

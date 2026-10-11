@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.Common.Core
+namespace PenguinWars.Common.Core
 {
     /// <summary>
     /// アプリケーション全体のグローバルライフサイクルおよび設定マネージャー

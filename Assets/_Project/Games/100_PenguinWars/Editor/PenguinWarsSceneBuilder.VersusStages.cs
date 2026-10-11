@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>オンライン対戦のステージ（仕様書 §3.4）。1ステージ1アセットで Data/Stages に置く</summary>
     public static partial class PenguinWarsSceneBuilder

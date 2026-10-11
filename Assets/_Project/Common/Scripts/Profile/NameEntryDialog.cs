@@ -1,10 +1,10 @@
 using System;
-using MiniGame.Common.Audio;
-using MiniGame.Common.UI;
+using PenguinWars.Common.Audio;
+using PenguinWars.Common.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.Common.Profile
+namespace PenguinWars.Common.Profile
 {
     /// <summary>
     /// 初回起動時のユーザー名入力ダイアログ。

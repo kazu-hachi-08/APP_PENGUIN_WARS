@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// ステージの敵の出方（StageDefinition.Entries）に従って、出すキャラを決める。実際の出撃は BattleWorld が行う。

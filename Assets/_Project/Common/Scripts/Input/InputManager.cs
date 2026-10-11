@@ -1,8 +1,8 @@
-using MiniGame.Common.Core;
+using PenguinWars.Common.Core;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace MiniGame.Common.Input
+namespace PenguinWars.Common.Input
 {
     /// <summary>
     /// キーボード入力と仮想UI入力を統合し、統一された入力を提供するマネージャー

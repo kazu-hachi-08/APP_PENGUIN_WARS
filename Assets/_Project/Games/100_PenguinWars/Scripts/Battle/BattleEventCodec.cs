@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// ホストで起きた BattleEvent をゲストへ送るためのバイト列変換。1フレーム分をまとめて1メッセージにする（ヒットは多いので1件ずつ送らない）。

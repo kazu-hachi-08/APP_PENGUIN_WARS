@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace MiniGame.Common.Input
+namespace PenguinWars.Common.Input
 {
     /// <summary>
     /// モバイル・タッチ操作向けのUGUI仮想ジョイスティック

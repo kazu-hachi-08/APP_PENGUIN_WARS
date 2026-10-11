@@ -1,6 +1,6 @@
 using System;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>取った★。セーブでは過去の分と OR して残すので、どの★かを区別できるフラグにする</summary>
     [Flags]

@@ -1,8 +1,8 @@
 {
-    "name": "MiniGame.PenguinWars.Battle.Tests",
-    "rootNamespace": "MiniGame.PenguinWars.Battle.Tests",
+    "name": "PenguinWars.Battle.Tests",
+    "rootNamespace": "PenguinWars.Battle.Tests",
     "references": [
-        "MiniGame.PenguinWars.Battle",
+        "PenguinWars.Battle",
         "UnityEngine.TestRunner",
         "UnityEditor.TestRunner"
     ],

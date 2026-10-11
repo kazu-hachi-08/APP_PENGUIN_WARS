@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// 射程判定と攻撃対象の選び方（仕様書 §5.2）。物理演算を使わず X の比較だけで決める（オンラインで結果がずれないように）

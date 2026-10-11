@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using NUnit.Framework;
-using static MiniGame.PenguinWars.Battle.Tests.BattleTestUtil;
+using static PenguinWars.Battle.Tests.BattleTestUtil;
 
-namespace MiniGame.PenguinWars.Battle.Tests
+namespace PenguinWars.Battle.Tests
 {
     /// <summary>ステージ「なだれの谷」のなだれ（仕様書 §3.4）</summary>
     public class AvalancheTests

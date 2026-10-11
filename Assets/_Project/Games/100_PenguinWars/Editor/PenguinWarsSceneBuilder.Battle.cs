@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>戦闘の進行役（BattleRunner）・キー入力・ユニットの見た目の見本</summary>
     public static partial class PenguinWarsSceneBuilder

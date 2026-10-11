@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityScene = UnityEngine.SceneManagement.Scene;
 
-namespace MiniGame.Common.UI
+namespace PenguinWars.Common.UI
 {
     /// <summary>
     /// ブラウザ版だけ、Unity標準フォントの Text を日本語フォントに差し替える。

@@ -1,6 +1,6 @@
 using System;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// 働きペンギンのレベル表（仕様書 §4.2）。PenguinWarsBalance の表を Battle 用に写したもの（Battle は ScriptableObject を知らないため）。

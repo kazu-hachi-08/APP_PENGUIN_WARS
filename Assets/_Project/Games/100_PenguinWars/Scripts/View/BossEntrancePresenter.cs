@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ボス登場の演出（仕様書 §9）: WARNING の帯と警報 → カメラが敵の城の前へ寄って戻る → 画面揺れ。

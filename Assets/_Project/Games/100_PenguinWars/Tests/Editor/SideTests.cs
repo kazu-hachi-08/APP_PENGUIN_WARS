@@ -1,7 +1,7 @@
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using NUnit.Framework;
 
-namespace MiniGame.PenguinWars.Battle.Tests
+namespace PenguinWars.Battle.Tests
 {
     public class SideTests
     {

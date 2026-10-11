@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// 全ステージの定義表。章ごとに partial で別ファイルにして、2人で別の章を触ってもぶつからないようにする。

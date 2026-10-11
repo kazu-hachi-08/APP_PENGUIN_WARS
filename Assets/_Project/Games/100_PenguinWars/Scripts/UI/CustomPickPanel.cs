@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ドラフトの後に、じぶんペンギンの3枠から1体を選ぶ画面。カードの作りはドラフトと同じ（DraftCard）。

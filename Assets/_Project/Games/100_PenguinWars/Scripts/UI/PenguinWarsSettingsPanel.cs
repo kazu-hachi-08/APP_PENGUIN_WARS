@@ -1,8 +1,8 @@
-using MiniGame.Common.Audio;
+using PenguinWars.Common.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// タイトルから開く音の設定（BGM ON/OFF・BGM音量・SE音量）。値は共通の AudioManager が PlayerPrefs に保存するので、

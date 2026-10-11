@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using NUnit.Framework;
 
-namespace MiniGame.PenguinWars.Battle.Tests
+namespace PenguinWars.Battle.Tests
 {
     /// <summary>ステージ検証ツール（StageSimulator・SimDeckPicker）。全ステージを回すのは重いので、テストは 1-1 だけ</summary>
     public class SimulatorTests

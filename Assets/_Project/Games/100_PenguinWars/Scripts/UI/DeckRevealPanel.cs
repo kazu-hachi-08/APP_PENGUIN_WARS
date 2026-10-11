@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// オンライン対戦の編成確認（仕様書 §2.2）。ドラフト中は隠していたお互いの10体を、上に自分・下に相手で並べ、抽選されたステージも発表する。

@@ -1,9 +1,9 @@
-using MiniGame.Common.Profile;
+using PenguinWars.Common.Profile;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.Editor
+namespace PenguinWars.Common.Editor
 {
     /// <summary>
     /// 初回のユーザー名入力ダイアログをシーンへ生成する。縦横どちらの基準解像度（1080x1920 / 1920x1080）にも収まる大きさにしてある。

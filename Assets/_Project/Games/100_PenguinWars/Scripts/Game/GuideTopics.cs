@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>デモの中で起こすこと1つ。Time 秒目に、ユニットを X に出す（UnitNo が 0 ならペンギン砲を撃つ）</summary>
     public readonly struct GuideAction

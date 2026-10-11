@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>ユニット1体ぶんの同期内容（仕様書 §10.2）</summary>
     public struct UnitSnapshot

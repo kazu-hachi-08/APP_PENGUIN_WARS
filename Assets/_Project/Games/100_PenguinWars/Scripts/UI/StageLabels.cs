@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>ステージ選択・詳細・リザルトで同じ言い回しを使うための文字の組み立て</summary>
     public static class StageLabels

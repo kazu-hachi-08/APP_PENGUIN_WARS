@@ -1,9 +1,9 @@
-using MiniGame.Common.Audio;
-using MiniGame.Common.Core;
+using PenguinWars.Common.Audio;
+using PenguinWars.Common.Core;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.Common.UI
+namespace PenguinWars.Common.UI
 {
     /// <summary>
     /// 画面上のポーズボタン
@@ -12,7 +12,7 @@ namespace MiniGame.Common.UI
     [RequireComponent(typeof(Button))]
     public class PauseButton : MonoBehaviour
     {
-        [SerializeField] private BaseMiniGameManager _gameManager;
+        [SerializeField] private BaseGameManager _gameManager;
 
         private void Awake()
         {
@@ -28,7 +28,7 @@ namespace MiniGame.Common.UI
                 AudioManager.Instance.PlaySe(SeId.ButtonClick);
             }
 
-            // ポーズ可否（リザルト中など）の判定は BaseMiniGameManager 側に任せる
+            // ポーズ可否（リザルト中など）の判定は BaseGameManager 側に任せる
             _gameManager.PauseGame();
         }
     }

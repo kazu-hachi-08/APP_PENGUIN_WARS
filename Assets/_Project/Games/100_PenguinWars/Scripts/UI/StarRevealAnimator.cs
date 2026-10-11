@@ -1,9 +1,9 @@
 using System;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// リザルトの★を左から1つずつポンと出す（仕様書 §9）。今回新しく取った★は光りながら跳ね続ける。

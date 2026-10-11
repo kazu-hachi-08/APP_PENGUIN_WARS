@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>BattleWorld を作るときの数値。PenguinWarsBalance から詰め替えて渡す</summary>
     public class BattleSettings

@@ -1,9 +1,9 @@
 using UnityEngine;
 
-namespace MiniGame.Common.Input
+namespace PenguinWars.Common.Input
 {
     /// <summary>
-    /// ミニゲーム入力操作のインターフェース
+    /// ゲーム入力操作のインターフェース
     /// </summary>
     public interface IInputProvider
     {

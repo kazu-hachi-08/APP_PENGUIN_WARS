@@ -1,8 +1,8 @@
 using System;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// インスペクタで編集する特殊能力1つ分。UnitAbility は readonly struct で Unity がシリアライズできないので、ここで持って詰め替える

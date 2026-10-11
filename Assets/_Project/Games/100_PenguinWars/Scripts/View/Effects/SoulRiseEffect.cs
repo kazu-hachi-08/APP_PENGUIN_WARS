@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>撃破時に魂がゆらゆら昇って消える。自分が倒したときは獲得さかなの数字も一緒に出す（仕様書 §9）</summary>
     public class SoulRiseEffect : PooledEffect

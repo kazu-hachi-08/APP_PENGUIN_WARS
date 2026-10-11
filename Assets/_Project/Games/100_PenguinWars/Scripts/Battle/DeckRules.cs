@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>ステージモードの編成のきまり（ちょうど10体・重複なし・全員解放済み）と、足りないときの補完</summary>
     public static class DeckRules

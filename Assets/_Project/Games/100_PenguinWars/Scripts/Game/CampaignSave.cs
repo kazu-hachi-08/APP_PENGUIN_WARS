@@ -1,7 +1,7 @@
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>ステージモードの進み具合を PlayerPrefs に JSON 1本で読み書きする（中身の形は CampaignProgress が持つ）</summary>
     public static class CampaignSave

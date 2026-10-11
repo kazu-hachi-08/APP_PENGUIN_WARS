@@ -1,15 +1,15 @@
 using System;
 using System.Collections;
-using MiniGame.Common.Scene;
+using PenguinWars.Common.Scene;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.Common.Online
+namespace PenguinWars.Common.Online
 {
     /// <summary>
     /// 試合前に「コンピュータと対戦」か「オンライン対戦（部屋を作る／コードで参加）」かを選ばせるパネル。
     /// オンラインを選んだ場合は、相手と接続できるまでここで待たせる。
-    /// 3人以上で遊べるミニゲームでは、ホストが「開始」を押すまでここで参加者を待つ（ロビー）。
+    /// 3人以上で遊べるゲームでは、ホストが「開始」を押すまでここで参加者を待つ（ロビー）。
     /// </summary>
     public class ModeSelectPanel : MonoBehaviour
     {
@@ -30,7 +30,7 @@ namespace MiniGame.Common.Online
         [SerializeField] private Button _cancelButton;
         [SerializeField] private Button _copyButton;
         [SerializeField] private Text _copyButtonLabel;
-        [Tooltip("3人以上の部屋でホストが試合を始めるボタン。1対1のミニゲームでは使わないので未設定でよい")]
+        [Tooltip("3人以上の部屋でホストが試合を始めるボタン。1対1のゲームでは使わないので未設定でよい")]
         [SerializeField] private Button _startButton;
 
         [Header("Copy")]
@@ -84,7 +84,7 @@ namespace MiniGame.Common.Online
             Open(onNpcSelected, OnlineSession.DefaultMaxPlayers, onTitle);
         }
 
-        /// <summary>3人以上で遊べるミニゲーム用。ホストが開始を押すと全員に席番号が配られる</summary>
+        /// <summary>3人以上で遊べるゲーム用。ホストが開始を押すと全員に席番号が配られる</summary>
         /// <param name="onNpcSelected">NPC戦を選んだ</param>
         /// <param name="onMatchStarted">オンライン試合開始（引数は自分の席番号（ホスト=0）と総人数）</param>
         /// <param name="maxPlayers">部屋の定員</param>
@@ -181,7 +181,7 @@ namespace MiniGame.Common.Online
         /// <summary>
         /// メニュー表示中はまだ接続していないので、セッションを切らずにそのまま戻ってよい。
         /// 接続待ち中は「キャンセル」でメニューに戻ってから押してもらう。
-        /// ゲーム固有のタイトル画面を持つミニゲームは、Sceneを読み直さずにそこへ戻れるよう戻り先を渡せる
+        /// ゲーム固有のタイトル画面を持つゲームは、Sceneを読み直さずにそこへ戻れるよう戻り先を渡せる
         /// </summary>
         private void ReturnToTitle()
         {

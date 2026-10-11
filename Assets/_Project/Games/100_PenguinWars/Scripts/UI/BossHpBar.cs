@@ -1,8 +1,8 @@
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ボスが場にいる間だけ、画面上部にボスの名前とHPバーを出す。戦場をスクロールしてボスが画面外にいても減り具合が分かるように

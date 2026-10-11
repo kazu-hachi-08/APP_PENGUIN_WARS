@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// 1キャラ分の定義（UnitDefinitions の1行）。細かい数値は持たず、役割とコストから UnitStatFormula が出す

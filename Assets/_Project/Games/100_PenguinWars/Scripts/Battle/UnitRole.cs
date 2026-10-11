@@ -1,4 +1,4 @@
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// キャラの役割（仕様書 §5.5）。数値の計算式・ランダム編成の制約・大型の確定出現で使う。

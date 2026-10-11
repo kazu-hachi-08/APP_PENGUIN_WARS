@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars.Art
+namespace PenguinWars.Art
 {
     public static partial class PenguinPartPatterns
     {

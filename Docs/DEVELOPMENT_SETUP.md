@@ -31,7 +31,7 @@ Unity Hub の「Installs」タブから、対象バージョンに以下のモ�
 2. `Assets/_Project/Games/100_PenguinWars/Scenes/PenguinWarsScene.unity` を開いて再生する
 3. オンライン対戦を試す場合は、Project Settings > Services で Unity Cloud のプロジェクトにリンクする（Relay と匿名サインインを使う）
 
-シーンやキャラのデータ・ドット絵はコードから生成している。手で編集せず、変えたら `Tools > MiniGame > Rebuild PenguinWars` で作り直す（詳しくは [PENGUIN_WARS_SPEC.md](PENGUIN_WARS_SPEC.md) §11.3）。
+シーンやキャラのデータ・ドット絵はコードから生成している。手で編集せず、変えたら `Tools > PenguinWars > Rebuild PenguinWars` で作り直す（詳しくは [PENGUIN_WARS_SPEC.md](PENGUIN_WARS_SPEC.md) §11.3）。
 
 ---
 
@@ -40,7 +40,7 @@ Unity Hub の「Installs」タブから、対象バージョンに以下のモ�
 ```text
 Assets/
 ├── _Project/
-│   ├── Common/                  # 共通基盤（MiniGame.* 名前空間）
+│   ├── Common/                  # 共通基盤（PenguinWars.Common.* 名前空間）
 │   │   ├── Scripts/             # Core / Audio / Input / Online / Profile / Scene / UI
 │   │   ├── Editor/              # 共通ダイアログのシーン生成・デバッグメニュー
 │   │   ├── Plugins/WebGL/       # ブラウザ版の名前入力・全画面（.jslib）
@@ -59,15 +59,15 @@ Docs/                            # 仕様書・開発手順
 Tools/Release/                   # Windows版のリリーススクリプト
 ```
 
-フォルダ名・名前空間は `MiniGame.*`・`Games/100_PenguinWars` のまま（Editor スクリプトに `Assets/_Project/Games/100_PenguinWars` の直書きパスがあるため、動かすときはまとめて直す）。
+フォルダ名 `Games/100_PenguinWars` は変えない（Editor スクリプトに `Assets/_Project/Games/100_PenguinWars` の直書きパスがあるため、動かすときはまとめて直す）。
 
 ---
 
 ## 5. テスト
 
-Window > General > Test Runner の EditMode で `MiniGame.PenguinWars.Battle.Tests` を実行する。戦闘ロジック（`Scripts/Battle/`）を変えたら通しておく。
+Window > General > Test Runner の EditMode で `PenguinWars.Battle.Tests` を実行する。戦闘ロジック（`Scripts/Battle/`）を変えたら通しておく。
 
-ステージの難しさは `Tools > MiniGame > PenguinWars > Simulate Stages` で bot に全ステージを遊ばせて確認できる（仕様書 §8.9）。
+ステージの難しさは `Tools > PenguinWars > Simulate Stages` で bot に全ステージを遊ばせて確認できる（仕様書 §8.9）。
 
 ---
 

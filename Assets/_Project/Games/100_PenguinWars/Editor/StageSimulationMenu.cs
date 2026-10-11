@@ -1,11 +1,11 @@
 using System.Diagnostics;
 using System.IO;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEditor;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>
     /// 全ステージを bot で自動プレイし、勝率・秒数・自城HP を表にする（仕様書 §8.9）。
@@ -20,13 +20,13 @@ namespace MiniGame.PenguinWars.Editor
         private const float MaxSeconds = 600f;
         private const string LogPrefix = "[StageSimulation]";
 
-        [MenuItem("Tools/MiniGame/PenguinWars/Simulate Stages")]
+        [MenuItem("Tools/PenguinWars/Simulate Stages")]
         public static void SimulateStages()
         {
             var balance = AssetDatabase.LoadAssetAtPath<PenguinWarsBalance>(PenguinWarsSceneBuilder.BalancePath);
             if (balance == null)
             {
-                Debug.LogWarning($"{LogPrefix} {PenguinWarsSceneBuilder.BalancePath} がありません。Tools > MiniGame > Rebuild PenguinWars を実行してください");
+                Debug.LogWarning($"{LogPrefix} {PenguinWarsSceneBuilder.BalancePath} がありません。Tools > PenguinWars > Rebuild PenguinWars を実行してください");
                 return;
             }
 

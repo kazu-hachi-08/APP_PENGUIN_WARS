@@ -1,4 +1,4 @@
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>陣営。Left は X=0 の城から右へ、Right は X=fieldLength の城から左へ進む</summary>
     public enum Side

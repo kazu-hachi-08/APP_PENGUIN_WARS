@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>ステージ1つ分の定義（StageDefinitions の1要素）。セーブは番号ではなく Id で記録する（並び替えで壊れないように）</summary>
     public class StageDefinition

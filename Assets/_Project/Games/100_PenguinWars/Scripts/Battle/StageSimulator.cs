@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// 画面なしでステージを1回自動プレイする（SimpleBot が左陣営を操作）。

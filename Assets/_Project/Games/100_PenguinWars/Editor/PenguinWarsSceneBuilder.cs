@@ -1,16 +1,16 @@
 using System.IO;
-using MiniGame.Common.Audio;
-using MiniGame.Common.Input;
-using MiniGame.Common.Scene;
-using MiniGame.Common.UI;
-using MiniGame.Editor;
+using PenguinWars.Common.Audio;
+using PenguinWars.Common.Input;
+using PenguinWars.Common.Scene;
+using PenguinWars.Common.UI;
+using PenguinWars.Common.Editor;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem.UI;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>
     /// PenguinWarsScene を自動生成するエディタユーティリティ。
@@ -29,7 +29,7 @@ namespace MiniGame.PenguinWars.Editor
         private const string GameTitle = "Penguin Wars";
         private const string LogPrefix = "[PenguinWarsSceneBuilder]";
 
-        [MenuItem("Tools/MiniGame/Rebuild PenguinWars", false, 7)]
+        [MenuItem("Tools/PenguinWars/Rebuild PenguinWars", false, 7)]
         public static void RebuildPenguinWars()
         {
             BuildInternal();

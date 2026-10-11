@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ゲストのみ。ホストから届いたバイト列を状態・イベントに戻して BattleRunner に流す。

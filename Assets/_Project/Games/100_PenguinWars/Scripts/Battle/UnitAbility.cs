@@ -1,4 +1,4 @@
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>特殊能力の種類（仕様書 §5.3）</summary>
     public enum UnitAbilityType

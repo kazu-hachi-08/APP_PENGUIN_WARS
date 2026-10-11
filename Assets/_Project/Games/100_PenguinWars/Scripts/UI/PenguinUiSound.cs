@@ -1,6 +1,6 @@
-using MiniGame.Common.Audio;
+using PenguinWars.Common.Audio;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// 画面のボタンを押したときの音。どのパネルでも同じ音を鳴らすので1か所にまとめる。

@@ -1,6 +1,6 @@
 using System;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>ユニットの行動（前進・攻撃）・ペンギン砲・ダメージと撃破報酬。ノックバックと状態異常は BattleWorld.Status.cs</summary>
     public partial class BattleWorld

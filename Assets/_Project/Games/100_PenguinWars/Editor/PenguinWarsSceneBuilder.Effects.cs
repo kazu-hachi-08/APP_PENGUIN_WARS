@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>演出（煙・火花・魂・ビーム・紙吹雪）の見本と、BattleEvent を演出と音に振り分ける BattleEventPresenter・PenguinWarsAudio・ボス登場の演出</summary>
     public static partial class PenguinWarsSceneBuilder

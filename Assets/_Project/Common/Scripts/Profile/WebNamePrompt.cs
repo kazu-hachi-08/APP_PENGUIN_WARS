@@ -1,4 +1,4 @@
-namespace MiniGame.Common.Profile
+namespace PenguinWars.Common.Profile
 {
     /// <summary>
     /// ブラウザ版の名前入力。Unity の InputField はブラウザ版だと日本語IMEで変換できないため、
@@ -8,12 +8,12 @@ namespace MiniGame.Common.Profile
     {
 #if UNITY_WEBGL && !UNITY_EDITOR
         [System.Runtime.InteropServices.DllImport("__Internal")]
-        private static extern string MiniGame_PromptText(string message, string defaultText);
+        private static extern string PenguinWars_PromptText(string message, string defaultText);
 
         public static bool IsAvailable => true;
 
         /// <summary>キャンセルされたら null</summary>
-        public static string Prompt(string message, string defaultText) => MiniGame_PromptText(message, defaultText);
+        public static string Prompt(string message, string defaultText) => PenguinWars_PromptText(message, defaultText);
 #else
         public static bool IsAvailable => false;
 

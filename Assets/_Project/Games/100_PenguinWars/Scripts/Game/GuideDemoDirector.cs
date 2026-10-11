@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// あそびかたのデモ係。GuideTopic の台本どおりに後ろの戦場（BattleRunner）へユニットを出し、LoopSeconds ごとに最初からやり直す。

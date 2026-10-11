@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.IO;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEditor;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>
     /// キャラデータ（Data/Units/Unit_NNN.asset）とカタログを作る。

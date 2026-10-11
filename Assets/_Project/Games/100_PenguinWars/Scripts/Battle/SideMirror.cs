@@ -1,4 +1,4 @@
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// ゲスト画面の左右反転（仕様書 §10.3）。ゲストは右陣営だが、自分の城が左に来るよう「陣営を入れ替え・X を裏返し」て見せる。

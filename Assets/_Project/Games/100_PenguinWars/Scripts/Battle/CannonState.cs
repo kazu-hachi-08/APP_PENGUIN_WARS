@@ -1,6 +1,6 @@
 using System;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// ペンギン砲のチャージ（仕様書 §4.4）。開始時は 0 から溜まる。

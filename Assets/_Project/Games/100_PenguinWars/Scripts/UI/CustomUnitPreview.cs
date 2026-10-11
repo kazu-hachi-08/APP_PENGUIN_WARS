@@ -1,7 +1,7 @@
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// じぶんペンギンの作成画面の大きいプレビュー。定義が変わるたびに CustomUnitFactory で絵を作り直し、前の絵は捨てる

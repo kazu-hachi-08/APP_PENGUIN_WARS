@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// セーブ用の小さな JSON 読み書き。Battle は UnityEngine を参照しない（JsonUtility が使えない）ので自前で持つ。

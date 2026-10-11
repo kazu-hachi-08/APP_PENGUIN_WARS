@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62171a863a5c8504993a3b3e7c3c1f7c, type: 3}
   m_Name: Stage_01_IcePath
-  m_EditorClassIdentifier: Assembly-CSharp::MiniGame.PenguinWars.PenguinStageData
+  m_EditorClassIdentifier: Assembly-CSharp::PenguinWars.PenguinStageData
   _displayName: "\u3053\u304A\u308A\u306E\u5C0F\u9053"
   _fieldLength: 12
   _castleHp: 4000

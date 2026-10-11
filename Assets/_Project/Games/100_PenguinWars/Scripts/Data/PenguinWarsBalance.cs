@@ -1,12 +1,12 @@
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// 遊びながら調整する数値をまとめる（仕様書 §4）。コードを触らずにインスペクタで変えられるようにするため。
     /// </summary>
-    [CreateAssetMenu(fileName = "PenguinWarsBalance", menuName = "MiniGame/PenguinWars/Balance")]
+    [CreateAssetMenu(fileName = "PenguinWarsBalance", menuName = "PenguinWars/Balance")]
     public class PenguinWarsBalance : ScriptableObject
     {
         [Tooltip("戦場の長さ（ワールド単位）。城の位置は SceneBuilder がこの値で置くので、変えたら Rebuild する")]

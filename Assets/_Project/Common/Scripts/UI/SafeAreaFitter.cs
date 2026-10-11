@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.Common.UI
+namespace PenguinWars.Common.UI
 {
     /// <summary>
     /// RectTransform を Screen.safeArea に合わせる

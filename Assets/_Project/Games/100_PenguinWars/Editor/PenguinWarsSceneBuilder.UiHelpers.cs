@@ -1,8 +1,8 @@
-using MiniGame.Editor;
+using PenguinWars.Common.Editor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>どの画面の partial からも使う UI 生成のヘルパー（文字・絵・ボタン・全画面パネル）と、アンカー・共通の色</summary>
     public static partial class PenguinWarsSceneBuilder

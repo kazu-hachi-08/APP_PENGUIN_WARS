@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using NUnit.Framework;
 
-namespace MiniGame.PenguinWars.Battle.Tests
+namespace PenguinWars.Battle.Tests
 {
     /// <summary>ステージの定義表の書き間違い（ID の重複・存在しないキャラ）を、遊ぶ前に見つける</summary>
     public class StageDefinitionTests

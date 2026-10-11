@@ -1,7 +1,7 @@
-using MiniGame.PenguinWars.Art;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Art;
+using PenguinWars.Battle;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// じぶんペンギンの定義から、既存キャラと同じ形の PenguinUnitData（数値＋両陣営の絵）を作る。

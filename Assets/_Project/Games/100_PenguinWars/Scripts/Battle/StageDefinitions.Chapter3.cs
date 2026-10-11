@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// 3章「オーロラ要塞」。大型が途中から何度も出てきて、倍率も高い。

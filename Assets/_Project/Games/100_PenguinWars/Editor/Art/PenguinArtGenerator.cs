@@ -1,9 +1,9 @@
-using MiniGame.PenguinWars.Art;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Art;
+using PenguinWars.Battle;
 using UnityEditor;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>
     /// 全キャラ×陣営2色×5コマのドット絵と、城・背景・演出の絵をコードから生成する（仕様書 §7.2）。

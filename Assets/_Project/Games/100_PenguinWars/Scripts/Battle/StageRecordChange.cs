@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>CampaignProgress.Record の戻り値。リザルトに「NEW RECORD!」「新しく取った★」「なかまになった！」を出すために使う</summary>
     public readonly struct StageRecordChange

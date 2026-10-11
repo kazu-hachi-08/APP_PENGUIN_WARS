@@ -2,10 +2,10 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
-    /// <summary>全キャラの一覧。中身は Tools > MiniGame > Rebuild PenguinWars が Data/Units/ から集めて入れる</summary>
-    [CreateAssetMenu(fileName = "PenguinUnitCatalog", menuName = "MiniGame/PenguinWars/Unit Catalog")]
+    /// <summary>全キャラの一覧。中身は Tools > PenguinWars > Rebuild PenguinWars が Data/Units/ から集めて入れる</summary>
+    [CreateAssetMenu(fileName = "PenguinUnitCatalog", menuName = "PenguinWars/Unit Catalog")]
     public class PenguinUnitCatalog : ScriptableObject
     {
         [SerializeField] private List<PenguinUnitData> _units = new List<PenguinUnitData>();

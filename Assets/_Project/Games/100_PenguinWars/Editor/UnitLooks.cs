@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>
     /// 全キャラの見た目（仕様書 §5.5「見た目」列）。ここに無い No は基本ペンギンになる。

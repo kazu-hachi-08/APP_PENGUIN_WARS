@@ -1,7 +1,7 @@
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>
     /// 戦場の絵（仕様書 §7.3）: 氷の城（青・赤）・地面・遠くの山・空。

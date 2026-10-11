@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// ステージモードで使えるキャラ。解放状態はセーブに持たず、クリア状況から毎回計算する

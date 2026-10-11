@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// リザルトの上に「なかまになった！」のカードを1体ずつ出す（仕様書 §9）。ペンギンは歩きコマで足踏みし、画面を押すと次のカードへ。

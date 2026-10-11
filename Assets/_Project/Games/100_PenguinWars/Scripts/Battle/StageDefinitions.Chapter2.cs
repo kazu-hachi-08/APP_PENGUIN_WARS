@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// 2章「ゆきやまの奥」。戦場が長くなり、遠距離・妨害が混ざる。

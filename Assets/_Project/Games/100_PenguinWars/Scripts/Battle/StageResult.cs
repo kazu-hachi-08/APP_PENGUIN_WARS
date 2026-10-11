@@ -1,4 +1,4 @@
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>ステージ1回分の結果。★の判定（StarRule）とリザルト表示の両方がこれだけを見る</summary>
     public readonly struct StageResult

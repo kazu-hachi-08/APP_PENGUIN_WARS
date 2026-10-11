@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Art;
+using PenguinWars.Art;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// じぶんペンギンの作成画面の「◀ パーツ名 ▶」1行。部位が違うだけで5行とも同じ動きなので使い回す。

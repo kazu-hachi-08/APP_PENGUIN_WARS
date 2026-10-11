@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>進み具合の保存形式（JSON）。ゲームの規則と分けて、保存形式だけを見て直せるようにする</summary>
     public partial class CampaignProgress

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ステージごとに山と地面の色を変える（仕様書 §3.4）。絵をステージの数だけ作らずに見た目の違いを出すため。

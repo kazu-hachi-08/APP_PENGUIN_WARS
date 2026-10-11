@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// 敵の城の砲を撃つかどうかの判断。BattleWorld を持たず、ユニット一覧と城の位置だけで決めてテストしやすくする

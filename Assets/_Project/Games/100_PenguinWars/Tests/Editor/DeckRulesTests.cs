@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using NUnit.Framework;
 
-namespace MiniGame.PenguinWars.Battle.Tests
+namespace PenguinWars.Battle.Tests
 {
     /// <summary>編成のきまり・補完・保存（§8.7）</summary>
     public class DeckRulesTests

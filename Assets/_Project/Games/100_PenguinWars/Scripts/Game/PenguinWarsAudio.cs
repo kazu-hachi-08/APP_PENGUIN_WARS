@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using MiniGame.Common.Audio;
+using PenguinWars.Common.Audio;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ペンギン大戦争のSE（出撃ポンッ・ヒットペチッ・撃破・ペンギン砲・レベルUP・城崩れ、

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>出撃時に城の前に出る煙（仕様書 §9）。ふくらみながら少し昇って消える</summary>
     public class SpawnSmokeEffect : PooledEffect

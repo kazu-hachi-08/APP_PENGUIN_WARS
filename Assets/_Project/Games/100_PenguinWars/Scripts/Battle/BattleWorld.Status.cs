@@ -1,6 +1,6 @@
 using System;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>ノックバックと、攻撃が当たったときの特殊能力（ふっとばす・止める・遅くする）</summary>
     public partial class BattleWorld

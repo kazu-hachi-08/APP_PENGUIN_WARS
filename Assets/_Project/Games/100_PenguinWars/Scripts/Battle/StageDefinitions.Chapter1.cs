@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// 1章「こおりの海岸」。戦場は短め・敵は壁とアタッカーが中心で、数で押してくる。

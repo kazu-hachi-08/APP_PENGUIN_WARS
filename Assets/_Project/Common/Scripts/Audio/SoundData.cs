@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace MiniGame.Common.Audio
+namespace PenguinWars.Common.Audio
 {
     /// <summary>
     /// BGM識別子

@@ -1,12 +1,12 @@
-using MiniGame.Common.UI;
-using MiniGame.Editor;
-using MiniGame.PenguinWars.Art;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Common.UI;
+using PenguinWars.Common.Editor;
+using PenguinWars.Art;
+using PenguinWars.Battle;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>
     /// タイトルから開く「じぶんペンギン」の作成画面。左の列に 題名・枠・プレビュー・数値、右の列に タブ、下の段に もどる・ほぞん。

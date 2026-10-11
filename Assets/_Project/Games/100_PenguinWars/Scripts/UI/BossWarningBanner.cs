@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ボス登場のとき画面上部に出る赤い帯（仕様書 §9）。「WARNING!」の文字が右から左へ流れ、帯が点滅する。

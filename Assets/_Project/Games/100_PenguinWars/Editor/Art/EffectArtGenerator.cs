@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>
     /// 演出のドット絵（仕様書 §9）: 出撃の煙・ヒットの火花・撃破の魂・ペンギン砲のビーム・紙吹雪。

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// HPバー用の単色の四角。1ワールド単位の白い四角を貼り、大きさは Transform のスケール、色は SpriteRenderer の色で決める。

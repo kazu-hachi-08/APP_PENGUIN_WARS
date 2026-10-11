@@ -1,7 +1,7 @@
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using NUnit.Framework;
 
-namespace MiniGame.PenguinWars.Battle.Tests
+namespace PenguinWars.Battle.Tests
 {
     /// <summary>ステージの解放・★の判定と保存（§2.1）</summary>
     public class CampaignTests

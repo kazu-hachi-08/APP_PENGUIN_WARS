@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// タイトルから開く「あそびかた」。上に説明カード、下にページ送りを出し、間に見える本物の戦場でデモを流す（仕様書 §2.0）。

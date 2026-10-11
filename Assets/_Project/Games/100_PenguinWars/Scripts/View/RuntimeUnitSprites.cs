@@ -1,8 +1,8 @@
-using MiniGame.PenguinWars.Art;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Art;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// 見た目ID から1陣営分の絵（5コマ）を実行時に作る。じぶんペンギンはパーツの組み合わせが多すぎて PNG を用意できないため。

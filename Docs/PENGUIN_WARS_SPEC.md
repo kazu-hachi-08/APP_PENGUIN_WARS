@@ -15,7 +15,7 @@
 | 対象プラットフォーム | Android / iPhone（PCはマウス＋キーボードで確認用・ブラウザ版） |
 | エンジン / 言語 | Unity / C# |
 
-ソースは `Assets/_Project/Games/100_PenguinWars/`。Sceneは `Tools > MiniGame > Rebuild PenguinWars`（`PenguinWarsSceneBuilder`）でコードから生成する。キャラのデータとドット絵も同じメニューでまとめて作り直す（§11.3）。
+ソースは `Assets/_Project/Games/100_PenguinWars/`。Sceneは `Tools > PenguinWars > Rebuild PenguinWars`（`PenguinWarsSceneBuilder`）でコードから生成する。キャラのデータとドット絵も同じメニューでまとめて作り直す（§11.3）。
 
 ### 1.1 モード
 
@@ -157,7 +157,7 @@ START!（1.0秒）
 | 相手の切断 | VICTORY! | 相手が切断しました |
 
 * 対戦のスコア欄は「自分の名前 72% - 40% 相手の名前」（城の残りHP割合。名前は `SeatNames`）
-* `DRAW` は共通の `BaseMiniGameManager.FinishGame` が対応していないので、`PenguinWarsGameManager.FinishAsDraw` で同じ手順を自前で踏む
+* `DRAW` は共通の `BaseGameManager.FinishGame` が対応していないので、`PenguinWarsGameManager.FinishAsDraw` で同じ手順を自前で踏む
 
 ステージのリザルトは専用パネル（§2.1 のボタン3つ）。対戦のリザルトは共通のリザルトで、リトライ（モード選択へ）またはタイトルへ戻れる。
 クリア時は城が崩れ始めたときに勝利のジングルを鳴らすので、共通の `SeId.GameClear` は鳴らさない（失敗の `GameOver` は鳴らす）。
@@ -435,7 +435,7 @@ Data/Units/Unit_001〜050.asset（PenguinUnitData）＋ Data/PenguinUnitCatalog.
 
 ドット絵はコードで生成する。50体を手描きせず、**基本ペンギン＋パーツの組み合わせ**で作る。1キャラに付けられるのは頭・手・背中が1つずつ。
 
-* 合成（`PenguinFrameComposer` / `PenguinBodyPatterns` / `PenguinPartPatterns` / `PenguinPalette`）は実行時にも使うので `Scripts/Art/`（namespace `MiniGame.PenguinWars.Art`）に置く。PNG に書き出す `PenguinArtGenerator` / `PenguinSpriteWriter` は `Editor/Art/`
+* 合成（`PenguinFrameComposer` / `PenguinBodyPatterns` / `PenguinPartPatterns` / `PenguinPalette`）は実行時にも使うので `Scripts/Art/`（namespace `PenguinWars.Art`）に置く。PNG に書き出す `PenguinArtGenerator` / `PenguinSpriteWriter` は `Editor/Art/`
 * 50体は `Rebuild PenguinWars` で PNG にする。じぶんペンギンはパーツの組み合わせが多すぎて PNG にできないので、作成画面と対戦開始時に `RuntimeUnitSprites.Build` で `Texture2D` に直接描く（同じ合成・同じ PPU・足元中央のピボット）
 
 | パーツ | ID |
@@ -608,7 +608,7 @@ Data/Units/Unit_001〜050.asset（PenguinUnitData）＋ Data/PenguinUnitCatalog.
 * 「最後に遊んだステージ」は出撃した時点で保存し、ステージ選択はその章から開く
 * セーブを消すときは `Edit > Clear All PlayerPrefs`（音量・ユーザー名・じぶんペンギンも消える）
 
-### 8.9 検証ツール（`Tools > MiniGame > PenguinWars > Simulate Stages`）
+### 8.9 検証ツール（`Tools > PenguinWars > Simulate Stages`）
 
 画面なしで全ステージを bot に自動プレイさせ、難しさを表にする。ステージの数値を変えたらこれで確かめる。
 
@@ -756,7 +756,7 @@ Assets/_Project/Games/100_PenguinWars/
  ├ Sprites/                        生成したドット絵（Units / 戦場 / Effects。1単位＝16px）
  ├ Scripts/
  │  ├ Art/                         ドット絵の合成（エディタの PNG 生成と実行時のじぶんペンギンで共通。§7.2）
- │  ├ Battle/                      純C#の戦闘ロジック（MiniGame.PenguinWars.Battle.asmdef）
+ │  ├ Battle/                      純C#の戦闘ロジック（PenguinWars.Battle.asmdef）
  │  ├ Data/                        ScriptableObject・見た目指定
  │  ├ Game/                        進行・Runner・入力・音
  │  ├ View/                        ユニット・城・カメラ・演出（Effects/）

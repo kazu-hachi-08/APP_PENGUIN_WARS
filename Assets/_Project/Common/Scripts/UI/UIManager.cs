@@ -1,8 +1,8 @@
 using System;
-using MiniGame.Common.Core;
+using PenguinWars.Common.Core;
 using UnityEngine;
 
-namespace MiniGame.Common.UI
+namespace PenguinWars.Common.UI
 {
     /// <summary>
     /// 共通UI（ダイアログ、ポーズ、リザルト等）の表示と制御を統括するマネージャー

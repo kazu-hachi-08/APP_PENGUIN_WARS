@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ドラフト画面（仕様書 §6）。上にラウンドと残り秒、中央に候補カード、下に取ったキャラ一覧。

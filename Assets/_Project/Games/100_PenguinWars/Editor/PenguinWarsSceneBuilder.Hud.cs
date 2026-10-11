@@ -1,9 +1,9 @@
-using MiniGame.Common.UI;
-using MiniGame.Editor;
+using PenguinWars.Common.UI;
+using PenguinWars.Common.Editor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>Canvas と HUD（時間表示・お知らせ・中央メッセージ・ボスのHPバー・ボス登場の WARNING 帯・ポーズボタン）</summary>
     public static partial class PenguinWarsSceneBuilder

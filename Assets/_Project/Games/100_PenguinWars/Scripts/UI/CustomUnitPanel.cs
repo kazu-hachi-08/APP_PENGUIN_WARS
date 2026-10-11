@@ -1,10 +1,10 @@
 using System;
-using MiniGame.Common.UI;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Common.UI;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// じぶんペンギンの作成画面（タイトルから開く）。3枠を切り替え、みため／のうりょくのタブで編集して「ほぞん」する。

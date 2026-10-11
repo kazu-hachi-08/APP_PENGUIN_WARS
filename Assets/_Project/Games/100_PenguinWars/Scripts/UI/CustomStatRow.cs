@@ -1,10 +1,10 @@
 using System;
 using System.Text;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// のうりょくタブの「体力 [-] ゲージ [+] 倍率 数値」1行。数値の種類が違うだけで5行とも同じ動きなので使い回す。

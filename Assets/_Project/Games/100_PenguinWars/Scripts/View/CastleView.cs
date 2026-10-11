@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// 城の見た目と頭上のHPバー。HP の計算は戦闘ロジック側が持ち、ここは渡された値を描くだけ

@@ -1,4 +1,4 @@
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// 検証用 bot（SimpleBot）の強さ。ステージの難しさを測る物差しなので、人間より強くしない

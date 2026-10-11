@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using NUnit.Framework;
-using static MiniGame.PenguinWars.Battle.Tests.BattleTestUtil;
+using static PenguinWars.Battle.Tests.BattleTestUtil;
 
-namespace MiniGame.PenguinWars.Battle.Tests
+namespace PenguinWars.Battle.Tests
 {
     /// <summary>ステージのギミック（開始さかな・働きペンギン上限・編成制限・敵の砲・なだれ・ボス）。どれも StageDefinition.ApplyTo を通して確かめる</summary>
     public class GimmickTests

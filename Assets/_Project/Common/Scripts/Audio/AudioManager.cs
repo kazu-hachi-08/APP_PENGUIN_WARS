@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using MiniGame.Common.Core;
+using PenguinWars.Common.Core;
 using UnityEngine;
 
-namespace MiniGame.Common.Audio
+namespace PenguinWars.Common.Audio
 {
     /// <summary>
     /// BGM・SEの再生、音量管理、永続化を行う統合オーディオマネージャー

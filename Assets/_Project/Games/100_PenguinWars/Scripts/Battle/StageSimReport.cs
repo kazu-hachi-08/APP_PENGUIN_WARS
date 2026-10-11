@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// 全ステージ × bot の強さ × シードを回して Markdown の表にする（Simulate Stages メニューの中身）。

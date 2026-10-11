@@ -2,7 +2,7 @@ using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>ピクセル配列を PNG に書き出し、ドット絵用の設定で Sprite として取り込む（キャラ・戦場の生成で共通）</summary>
     public static class PenguinSpriteWriter

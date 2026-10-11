@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.Common.Scene
+namespace PenguinWars.Common.Scene
 {
     /// <summary>
     /// 画面暗転・明転（フェード）を制御するコンポーネント

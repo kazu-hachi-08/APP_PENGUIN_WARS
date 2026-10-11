@@ -1,20 +1,20 @@
 using System;
-using MiniGame.Common.Audio;
-using MiniGame.Common.Input;
-using MiniGame.Common.Scene;
-using MiniGame.Common.UI;
+using PenguinWars.Common.Audio;
+using PenguinWars.Common.Input;
+using PenguinWars.Common.Scene;
+using PenguinWars.Common.UI;
 using UnityEngine;
 
-namespace MiniGame.Common.Core
+namespace PenguinWars.Common.Core
 {
     /// <summary>
-    /// 全てのミニゲームマネージャーの親となる基底クラス
+    /// 全てのゲームマネージャーの親となる基底クラス
     /// ライフサイクル、状態管理、一時停止、リスタート、共通UI連携を提供
     /// </summary>
-    public abstract class BaseMiniGameManager : MonoBehaviour
+    public abstract class BaseGameManager : MonoBehaviour
     {
         [Header("Base Settings")]
-        [SerializeField] private string _gameTitle = "MiniGame";
+        [SerializeField] private string _gameTitle = "Penguin Wars";
         [SerializeField] private BgmId _gameplayBgm = BgmId.GameBgm01;
         [SerializeField] private bool _autoPlayBgm = true;
 
@@ -26,13 +26,13 @@ namespace MiniGame.Common.Core
         [SerializeField] private VirtualButton _actionButton4;
 
         public string GameTitle => _gameTitle;
-        public MiniGameState CurrentState { get; private set; } = MiniGameState.Ready;
-        public bool IsPlaying => CurrentState == MiniGameState.Playing;
-        public bool IsPaused => CurrentState == MiniGameState.Paused;
+        public GameState CurrentState { get; private set; } = GameState.Ready;
+        public bool IsPlaying => CurrentState == GameState.Playing;
+        public bool IsPaused => CurrentState == GameState.Paused;
 
         public event GameStateChangedHandler OnGameStateChanged;
 
-        private MiniGameState _stateBeforePause = MiniGameState.Playing;
+        private GameState _stateBeforePause = GameState.Playing;
 
         protected virtual void Start()
         {
@@ -82,7 +82,7 @@ namespace MiniGame.Common.Core
         public virtual void InitializeGame()
         {
             Time.timeScale = 1.0f;
-            ChangeState(MiniGameState.Ready);
+            ChangeState(GameState.Ready);
             OnGameReady();
         }
 
@@ -91,18 +91,18 @@ namespace MiniGame.Common.Core
         /// </summary>
         public virtual void StartGame()
         {
-            ChangeState(MiniGameState.Playing);
+            ChangeState(GameState.Playing);
             OnGameStart();
         }
 
         /// <summary>
         /// ゲーム状態の遷移
         /// </summary>
-        public void ChangeState(MiniGameState newState)
+        public void ChangeState(GameState newState)
         {
             if (CurrentState == newState) return;
 
-            MiniGameState oldState = CurrentState;
+            GameState oldState = CurrentState;
             CurrentState = newState;
 
             OnGameStateChanged?.Invoke(oldState, newState);
@@ -113,13 +113,13 @@ namespace MiniGame.Common.Core
         /// </summary>
         public virtual void PauseGame()
         {
-            if (CurrentState == MiniGameState.Paused || CurrentState == MiniGameState.GameOver || CurrentState == MiniGameState.Result)
+            if (CurrentState == GameState.Paused || CurrentState == GameState.GameOver || CurrentState == GameState.Result)
             {
                 return;
             }
 
             _stateBeforePause = CurrentState;
-            ChangeState(MiniGameState.Paused);
+            ChangeState(GameState.Paused);
             Time.timeScale = 0f;
 
             if (UIManager.HasInstance)
@@ -139,7 +139,7 @@ namespace MiniGame.Common.Core
         /// </summary>
         public virtual void ResumeGame()
         {
-            if (CurrentState != MiniGameState.Paused) return;
+            if (CurrentState != GameState.Paused) return;
 
             Time.timeScale = 1.0f;
             ChangeState(_stateBeforePause);
@@ -157,7 +157,7 @@ namespace MiniGame.Common.Core
         /// </summary>
         public virtual void FinishGame(bool isVictory, string scoreText, string detailText = "")
         {
-            ChangeState(MiniGameState.GameOver);
+            ChangeState(GameState.GameOver);
             Time.timeScale = 1.0f;
 
             if (AudioManager.HasInstance)
@@ -168,7 +168,7 @@ namespace MiniGame.Common.Core
             OnGameOver(isVictory);
 
             // リザルト画面表示
-            ChangeState(MiniGameState.Result);
+            ChangeState(GameState.Result);
             if (UIManager.HasInstance)
             {
                 string title = isVictory ? "VICTORY!" : "GAME OVER";
@@ -185,7 +185,7 @@ namespace MiniGame.Common.Core
         }
 
         /// <summary>
-        /// 現在のミニゲームをリスタート
+        /// 現在のゲームをリスタート
         /// </summary>
         public virtual void RestartGame()
         {

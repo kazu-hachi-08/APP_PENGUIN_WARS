@@ -1,8 +1,8 @@
-using MiniGame.Editor;
+using PenguinWars.Common.Editor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>タイトルから開くキャラずかん（仕様書 §2.0）。マスはひな形を1つだけ作り、中身は実行時にカタログから並べる</summary>
     public static partial class PenguinWarsSceneBuilder

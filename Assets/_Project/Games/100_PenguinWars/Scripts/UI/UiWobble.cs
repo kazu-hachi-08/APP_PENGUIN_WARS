@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>文字を左右に傾けながら少し伸び縮みさせる（リザルトの NEW RECORD! など、目に留めてほしい表示用）</summary>
     public class UiWobble : MonoBehaviour

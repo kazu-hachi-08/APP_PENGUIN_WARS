@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// ステージモードの進み具合（クリア状況・★・ベストタイム・最後に遊んだステージ・最後に使った編成）。

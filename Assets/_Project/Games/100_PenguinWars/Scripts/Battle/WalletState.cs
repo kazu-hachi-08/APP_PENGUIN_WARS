@@ -1,6 +1,6 @@
 using System;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>陣営ごとのさかな（仕様書 §4.1）と働きペンギンのレベル（§4.2）</summary>
     public class WalletState

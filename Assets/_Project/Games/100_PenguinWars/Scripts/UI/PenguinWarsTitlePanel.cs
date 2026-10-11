@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using MiniGame.Common.Profile;
-using MiniGame.Common.UI;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Common.Profile;
+using PenguinWars.Common.UI;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ペンギン大戦争のタイトル画面（仕様書 §2.0）。ロゴがふわふわ揺れ、ランダムなペンギンがぴょこぴょこ跳ねる。

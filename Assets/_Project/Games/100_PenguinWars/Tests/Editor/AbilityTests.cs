@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using NUnit.Framework;
-using static MiniGame.PenguinWars.Battle.Tests.BattleTestUtil;
+using static PenguinWars.Battle.Tests.BattleTestUtil;
 
-namespace MiniGame.PenguinWars.Battle.Tests
+namespace PenguinWars.Battle.Tests
 {
     /// <summary>ノックバック・特殊能力（§5.3・§5.4）</summary>
     public class AbilityTests

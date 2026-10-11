@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ドラフトの後の「じぶんペンギン選択」（3枠から1体）。Phase は Draft のまま扱い、切断などの処理をドラフトと共有する。

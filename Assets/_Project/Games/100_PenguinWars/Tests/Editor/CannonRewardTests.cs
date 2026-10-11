@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using NUnit.Framework;
-using static MiniGame.PenguinWars.Battle.Tests.BattleTestUtil;
+using static PenguinWars.Battle.Tests.BattleTestUtil;
 
-namespace MiniGame.PenguinWars.Battle.Tests
+namespace PenguinWars.Battle.Tests
 {
     /// <summary>撃破報酬・ペンギン砲・ランダム編成</summary>
     public class CannonRewardTests

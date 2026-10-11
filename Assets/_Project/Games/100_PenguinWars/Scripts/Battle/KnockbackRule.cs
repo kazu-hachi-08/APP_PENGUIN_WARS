@@ -1,4 +1,4 @@
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// ノックバックの判定（仕様書 §5.4）。体力が「最大HP ÷ KnockbackCount」減るごとに1回ノックバックする

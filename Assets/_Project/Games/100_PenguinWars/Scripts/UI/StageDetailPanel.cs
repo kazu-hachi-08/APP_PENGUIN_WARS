@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ステージ選択でマスを押すと出る詳細。★の条件を先に見せて、守り・速攻のどちらを狙うか決めてから出撃してもらう。

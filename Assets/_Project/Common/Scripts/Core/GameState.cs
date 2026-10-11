@@ -1,9 +1,9 @@
-namespace MiniGame.Common.Core
+namespace PenguinWars.Common.Core
 {
     /// <summary>
-    /// ミニゲーム共通の実行状態
+    /// ゲーム共通の実行状態
     /// </summary>
-    public enum MiniGameState
+    public enum GameState
     {
         /// <summary>初期化・カウントダウン前</summary>
         Ready,
@@ -30,5 +30,5 @@ namespace MiniGame.Common.Core
     /// <summary>
     /// ゲーム状態変更イベントのデリゲート
     /// </summary>
-    public delegate void GameStateChangedHandler(MiniGameState previousState, MiniGameState newState);
+    public delegate void GameStateChangedHandler(GameState previousState, GameState newState);
 }

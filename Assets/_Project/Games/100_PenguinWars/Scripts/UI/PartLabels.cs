@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Art;
+using PenguinWars.Art;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// じぶんペンギンの作成画面に出すパーツの日本語名（仕様書 §7.2 のパーツの表）。

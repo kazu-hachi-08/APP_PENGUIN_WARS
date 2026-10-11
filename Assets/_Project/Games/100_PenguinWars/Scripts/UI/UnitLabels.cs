@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using System.Text;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// キャラ名・役割・特殊能力の画面に出す名前（仕様書 §5.3・§5.5）と、一覧に出す立ち姿。enum の並びと表示名を1か所で対応させる。

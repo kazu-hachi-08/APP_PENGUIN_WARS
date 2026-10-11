@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// BGM素材が無いときに鳴らす仮のBGM（仕様書 §9）。矩形波のメロディ・三角波のベース・ノイズのハイハットで作るループ曲。

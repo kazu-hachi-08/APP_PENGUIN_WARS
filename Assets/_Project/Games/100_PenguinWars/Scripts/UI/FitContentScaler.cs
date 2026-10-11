@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// 固定サイズで並べた中身（_content）を、この枠（SafeArea）に収まるまで縦横同じ比率で縮める。

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>アニメのコマ（仕様書 §7.2「歩き2・攻撃2・ノックバック1」）。並び順が UnitSpriteSet の配列の並びと PNG の番号になる</summary>
     public enum PenguinFrame
@@ -14,7 +14,7 @@ namespace MiniGame.PenguinWars
     }
 
     /// <summary>
-    /// 1キャラ1陣営分のスプライト。中身は Tools > MiniGame > Rebuild PenguinWars が PenguinUnitData に書き込む
+    /// 1キャラ1陣営分のスプライト。中身は Tools > PenguinWars > Rebuild PenguinWars が PenguinUnitData に書き込む
     /// </summary>
     [Serializable]
     public class UnitSpriteSet

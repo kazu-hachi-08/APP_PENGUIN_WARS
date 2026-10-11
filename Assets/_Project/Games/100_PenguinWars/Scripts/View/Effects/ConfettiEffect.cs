@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// 敵の城を落としたときの紙吹雪1枚（仕様書 §9）。上へ弾けてから、くるくる回りながらひらひら落ちる。

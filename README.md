@@ -57,9 +57,9 @@ Docs/                        # 仕様書・開発手順
 Tools/Release/               # Windows版のリリーススクリプト
 ```
 
-* フォルダ名・名前空間は `MiniGame.*`・`Games/100_PenguinWars` のまま（Editor スクリプトに直書きパスがあるため）
-* 戦闘ロジック（`Scripts/Battle/`）は Unity に依存しない純C#（`MiniGame.PenguinWars.Battle.asmdef`）
-* シーン・キャラのデータ・ドット絵はコードから生成する（`Tools > MiniGame > Rebuild PenguinWars`）
+* フォルダ名 `Games/100_PenguinWars` は変えない（Editor スクリプトに直書きパスがあるため）
+* 戦闘ロジック（`Scripts/Battle/`）は Unity に依存しない純C#（`PenguinWars.Battle.asmdef`）
+* シーン・キャラのデータ・ドット絵はコードから生成する（`Tools > PenguinWars > Rebuild PenguinWars`）
 
 詳しくは [Docs/DEVELOPMENT_SETUP.md](Docs/DEVELOPMENT_SETUP.md) を参照。
 

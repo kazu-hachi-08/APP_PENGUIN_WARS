@@ -1,6 +1,6 @@
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// 操作の送り先。オンラインのゲストは自分で戦闘を計算しないので、BattleRunner は操作をここ（ホストへの送信）に渡す。

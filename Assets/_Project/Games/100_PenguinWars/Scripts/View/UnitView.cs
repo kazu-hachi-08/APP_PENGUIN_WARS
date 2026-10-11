@@ -1,7 +1,7 @@
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ユニット1体の表示。状態は BattleWorld が持つので、ここは UnitState を受けてコマと色を選ぶだけ。

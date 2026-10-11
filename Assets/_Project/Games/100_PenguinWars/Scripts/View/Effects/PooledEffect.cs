@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// 一定時間だけ動いて自分で非表示になる演出の土台。非表示になったものを EffectPool が使い回す。

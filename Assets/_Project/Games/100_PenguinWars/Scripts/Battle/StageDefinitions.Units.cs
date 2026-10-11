@@ -1,4 +1,4 @@
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// 定義表で使うキャラ No の名前と、敵の出方を1行で書くヘルパー。

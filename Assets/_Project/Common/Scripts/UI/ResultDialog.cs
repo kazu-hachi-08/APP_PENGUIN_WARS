@@ -1,12 +1,12 @@
 using System;
-using MiniGame.Common.Audio;
+using PenguinWars.Common.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.Common.UI
+namespace PenguinWars.Common.UI
 {
     /// <summary>
-    /// ミニゲーム共通リザルト画面
+    /// 共通リザルト画面
     /// </summary>
     public class ResultDialog : MonoBehaviour
     {

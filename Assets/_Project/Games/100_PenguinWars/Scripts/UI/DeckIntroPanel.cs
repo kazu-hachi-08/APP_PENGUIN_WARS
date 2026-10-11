@@ -1,10 +1,10 @@
 using System;
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// 試合前の編成発表（仕様書 §2.1）。保存した編成10体とステージ名・特別ルールを見せるだけで、表示時間は GameManager が決める。

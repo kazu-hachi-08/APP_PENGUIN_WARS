@@ -1,10 +1,10 @@
 using System.IO;
-using MiniGame.Editor;
+using PenguinWars.Common.Editor;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>ゲーム固有のタイトル画面・音の設定パネル（ずかんは .Zukan、あそびかたは .Guide）と、Audio/ に置いたBGM素材の差し込み（仕様書 §2.0・§9）</summary>
     public static partial class PenguinWarsSceneBuilder

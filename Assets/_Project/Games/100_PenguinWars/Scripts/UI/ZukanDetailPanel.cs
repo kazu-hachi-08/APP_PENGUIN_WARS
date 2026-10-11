@@ -1,8 +1,8 @@
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ずかんの詳細（仕様書 §2.0）。数値はカタログのアセットから毎回読むので、定義表を変えて生成し直せばそのまま反映される

@@ -1,9 +1,9 @@
 using System;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>ドラフトの候補カード1枚（仕様書 §6）。見た目・名前・コスト・役割・能力を描くだけで、選んだ後の進行は DraftPanel が持つ</summary>
     public class DraftCard : MonoBehaviour

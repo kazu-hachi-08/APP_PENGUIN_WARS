@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// 戦場を横にスクロールするカメラ（仕様書 §3.2）。ドラッグ・←→キーで X だけ動かし、戦場の端で止める。

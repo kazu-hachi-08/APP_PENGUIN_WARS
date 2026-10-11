@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// 1キャラ分の数値（仕様書 §5.1）。ScriptableObject から変換して渡すことで、戦闘ロジックとテストを Unity のアセットから切り離す

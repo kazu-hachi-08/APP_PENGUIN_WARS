@@ -1,4 +1,4 @@
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// 計算式の値に個別にかける倍率（1 = 式のまま）。「にんじゃは速い」「スナイパーは射程最長」のような個性をここで足す

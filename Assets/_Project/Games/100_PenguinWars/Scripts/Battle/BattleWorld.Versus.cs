@@ -1,4 +1,4 @@
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>オンライン対戦の制限時間と時間切れの判定（仕様書 §2.2）</summary>
     public partial class BattleWorld

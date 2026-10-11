@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.Common.Scene
+namespace PenguinWars.Common.Scene
 {
     /// <summary>
     /// Windows版のウィンドウ形をシーンの向きに合わせる。

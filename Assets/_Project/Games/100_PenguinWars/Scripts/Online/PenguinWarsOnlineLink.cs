@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
-using MiniGame.Common.Online;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Common.Online;
+using PenguinWars.Battle;
 using Unity.Collections;
 using Unity.Netcode;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ペンギン大戦争のオンライン対戦で試合中のやり取りを送受信する（仕様書 §10.2）。

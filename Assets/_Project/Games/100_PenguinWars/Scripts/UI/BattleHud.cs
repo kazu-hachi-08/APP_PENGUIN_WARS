@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>画面上部の時間表示・お知らせ（なだれ注意）と、中央のメッセージ（START! など）。ボス出現は BossWarningBanner</summary>
     public class BattleHud : MonoBehaviour

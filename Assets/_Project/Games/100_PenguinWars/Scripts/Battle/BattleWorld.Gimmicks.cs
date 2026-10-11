@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>ステージのギミックのうち、陣営ごとに変わるもの（敵の城の砲・編成制限）</summary>
     public partial class BattleWorld

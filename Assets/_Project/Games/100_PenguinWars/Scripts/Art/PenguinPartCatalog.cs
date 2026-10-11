@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Art
+namespace PenguinWars.Art
 {
     /// <summary>見た目のどの部位か（じぶんペンギンの作成画面で1行ずつ選ぶ）</summary>
     public enum PenguinPartSlot

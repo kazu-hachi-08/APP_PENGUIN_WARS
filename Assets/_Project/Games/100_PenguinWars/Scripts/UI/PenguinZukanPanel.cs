@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// タイトルから開くキャラずかん（仕様書 §2.0）。マスはカタログから実行時に作るので、

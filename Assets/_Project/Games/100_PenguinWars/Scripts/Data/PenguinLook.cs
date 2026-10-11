@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// 見た目のパーツ指定（仕様書 §7.2）。50体を手描きせず「基本ペンギン＋パーツ」で作るため、キャラごとに持つのは ID 文字列だけ。

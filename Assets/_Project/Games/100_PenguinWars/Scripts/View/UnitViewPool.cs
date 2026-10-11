@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// UnitState.Id ごとに UnitView を出し入れする。出撃・撃破のたびに Instantiate/Destroy しないよう、消えたユニットの View は使い回す
@@ -58,7 +58,7 @@ namespace MiniGame.PenguinWars
             UnitSpriteSet sprites = data != null ? data.GetSprites(unit.Side) : null;
             if (sprites != null && sprites.IsValid) return sprites;
 
-            Debug.LogWarning($"[UnitViewPool] No.{unit.UnitNo} の絵がありません。Tools > MiniGame > Rebuild PenguinWars を実行してください");
+            Debug.LogWarning($"[UnitViewPool] No.{unit.UnitNo} の絵がありません。Tools > PenguinWars > Rebuild PenguinWars を実行してください");
             return null;
         }
 

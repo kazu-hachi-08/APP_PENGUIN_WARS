@@ -1,11 +1,11 @@
 using System;
-using MiniGame.Common.Profile;
-using MiniGame.PenguinWars.Art;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Common.Profile;
+using PenguinWars.Art;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// じぶんペンギンの作成画面の「みため」タブ（名前・5部位の◀▶・おまかせ）。

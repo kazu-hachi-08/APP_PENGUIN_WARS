@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// 城が揺れて崩れる演出（仕様書 §2.1・§9。1.5秒）。前半は揺れるだけ、後半で足元に向かって潰れる。

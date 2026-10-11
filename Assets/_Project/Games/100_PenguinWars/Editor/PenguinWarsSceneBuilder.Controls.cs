@@ -1,8 +1,8 @@
-using MiniGame.Editor;
+using PenguinWars.Common.Editor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>画面下の操作UI（働きペンギン・さかな表示・出撃ボタン5個・ページ切替・ペンギン砲）。仕様書 §7.1</summary>
     public static partial class PenguinWarsSceneBuilder

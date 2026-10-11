@@ -1,4 +1,4 @@
-namespace MiniGame.Common.Scene
+namespace PenguinWars.Common.Scene
 {
     /// <summary>
     /// シーン名を型安全に管理する定数クラス

@@ -1,4 +1,4 @@
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// ステージ「なだれの谷」のなだれ（仕様書 §3.4）。一定間隔で戦場の真ん中にいるユニットを敵味方関係なく押し戻し、

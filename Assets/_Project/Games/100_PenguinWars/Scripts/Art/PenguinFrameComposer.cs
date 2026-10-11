@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars.Art
+namespace PenguinWars.Art
 {
     /// <summary>
     /// 基本体＋パーツを重ね描きして1コマ分のピクセルを作る。1キャラを丸ごと描かずに済むよう、コマごとの違いは「ずらし」だけで表す

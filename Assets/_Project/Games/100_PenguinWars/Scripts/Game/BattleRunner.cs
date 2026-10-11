@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// BattleWorld を固定ステップで進め、状態を View に流す橋渡し役。
@@ -283,7 +283,7 @@ namespace MiniGame.PenguinWars
         {
             if (stageIndex >= 0 && stageIndex < VersusStageCount) return _versusStages[stageIndex];
 
-            Debug.LogWarning($"[BattleRunner] ステージ {stageIndex} がありません。Tools > MiniGame > Rebuild PenguinWars を実行してください");
+            Debug.LogWarning($"[BattleRunner] ステージ {stageIndex} がありません。Tools > PenguinWars > Rebuild PenguinWars を実行してください");
             return null;
         }
 
@@ -361,7 +361,7 @@ namespace MiniGame.PenguinWars
             }
             if (units.Count == 0)
             {
-                Debug.LogWarning("[BattleRunner] カタログが空です。Tools > MiniGame > Rebuild PenguinWars を実行してください");
+                Debug.LogWarning("[BattleRunner] カタログが空です。Tools > PenguinWars > Rebuild PenguinWars を実行してください");
             }
             return units;
         }

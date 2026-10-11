@@ -1,6 +1,6 @@
 using System;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>状態異常の種類。BattleEvent.StatusApplied の Amount に入れる</summary>
     public enum UnitStatusType

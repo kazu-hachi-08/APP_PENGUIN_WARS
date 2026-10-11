@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>ずかんの並べ替えに使う数値1つ分。マスの左上に出す数字と、並べ替えの値を同じものにする</summary>
     public class ZukanStatColumn

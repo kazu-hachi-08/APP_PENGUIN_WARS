@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// 出撃ボタン 5個×2ページ（仕様書 §7.1）。毎フレーム BattleWorld を読んで表示するだけで、お金を直接いじらない

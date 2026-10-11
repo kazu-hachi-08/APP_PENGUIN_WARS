@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// 戦闘のすべて（ユニット・城・お金・砲）を持つ純C#の世界。MonoBehaviour は Enqueue で操作を渡し、Step で進め、状態とイベントを読むだけにする。

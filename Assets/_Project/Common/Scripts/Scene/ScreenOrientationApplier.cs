@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.Common.Scene
+namespace PenguinWars.Common.Scene
 {
     /// <summary>
     /// 端末の画面向きを横に固定する（ペンギン大戦争は横スクロールの1本レーン）。

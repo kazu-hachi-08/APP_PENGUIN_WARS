@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// ステージ用の BattleWorld を作る。実機（BattleRunner）と検証（StageSimulator）で作り方がずれると

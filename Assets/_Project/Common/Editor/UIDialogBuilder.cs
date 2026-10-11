@@ -1,13 +1,13 @@
-using MiniGame.Common.UI;
+using PenguinWars.Common.UI;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.Editor
+namespace PenguinWars.Common.Editor
 {
     /// <summary>
     /// 共通ダイアログ（確認・ポーズ・リザルト）のUIをシーンへ生成するエディタユーティリティ
-    /// タイトルと各ミニゲームのSceneBuilderから共有して使う
+    /// タイトルと各ゲームのSceneBuilderから共有して使う
     /// </summary>
     public static class UIDialogBuilder
     {

@@ -1,8 +1,8 @@
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>
     /// ステージモードの編成画面（仕様書 §8.7）。上に10枠、下にずかんと同じマスの一覧。

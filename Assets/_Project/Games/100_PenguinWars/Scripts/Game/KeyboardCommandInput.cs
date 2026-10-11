@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// PC確認用のキー操作（仕様書 §7.1）。1〜5=表示中ページの出撃、Tab=ページ切替、Q=働きペンギン、Space=ペンギン砲。

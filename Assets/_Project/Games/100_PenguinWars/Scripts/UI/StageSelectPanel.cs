@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ステージ選択。1章ずつ横一列にマスを並べ、左右のボタンで章を切り替える。

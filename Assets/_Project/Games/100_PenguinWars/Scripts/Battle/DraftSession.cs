@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// オンライン対戦前のドラフト（仕様書 §6）。各ラウンドで両者に別々の候補を出し、両者が1体ずつ選んだら次へ進む。

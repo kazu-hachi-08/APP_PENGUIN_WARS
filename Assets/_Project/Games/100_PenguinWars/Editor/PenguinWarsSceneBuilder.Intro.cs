@@ -1,8 +1,8 @@
-using MiniGame.Editor;
+using PenguinWars.Common.Editor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>試合前の編成発表パネル（仕様書 §2.1）。出撃ボタンと同じ 5体×2段で並べる</summary>
     public static partial class PenguinWarsSceneBuilder

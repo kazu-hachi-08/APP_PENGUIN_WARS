@@ -1,16 +1,16 @@
-using MiniGame.Common.Core;
-using MiniGame.Common.UI;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Common.Core;
+using PenguinWars.Common.UI;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ペンギン大戦争の進行役。タイトル → モード選択 →（対戦はドラフト →）編成発表 → START! → プレイ → 城が落ちたらリザルト（仕様書 §2）。
     /// 戦闘そのものは BattleRunner に任せ、ここは段階の切り替えだけを持つ。
     /// このファイルは共通の流れ。一人用のステージ選択・結果は .Stage.cs、オンライン対戦の接続・決着は .Online.cs、ドラフト・編成確認は .Draft.cs
     /// </summary>
-    public partial class PenguinWarsGameManager : BaseMiniGameManager
+    public partial class PenguinWarsGameManager : BaseGameManager
     {
         private const string StartMessage = "START!";
 
@@ -197,19 +197,19 @@ namespace MiniGame.PenguinWars
             else EndStage();
         }
 
-        /// <summary>BaseMiniGameManager.FinishGame はタイトルが VICTORY! / GAME OVER しかないので、別のタイトルを出すときは同じ手順を自前で踏む</summary>
+        /// <summary>BaseGameManager.FinishGame はタイトルが VICTORY! / GAME OVER しかないので、別のタイトルを出すときは同じ手順を自前で踏む</summary>
         private void ShowCustomResult(string title, bool isVictory, string score, string detail)
         {
             EnterResultState(isVictory);
             if (UIManager.HasInstance) UIManager.Instance.ShowResultDialog(title, score, detail, RestartGame, ReturnToTitle);
         }
 
-        /// <summary>BaseMiniGameManager.FinishGame と同じ順で状態を進める（表示は呼び出し側が専用のものを出す）</summary>
+        /// <summary>BaseGameManager.FinishGame と同じ順で状態を進める（表示は呼び出し側が専用のものを出す）</summary>
         private void EnterResultState(bool isVictory)
         {
-            ChangeState(MiniGameState.GameOver);
+            ChangeState(GameState.GameOver);
             OnGameOver(isVictory);
-            ChangeState(MiniGameState.Result);
+            ChangeState(GameState.Result);
         }
     }
 }

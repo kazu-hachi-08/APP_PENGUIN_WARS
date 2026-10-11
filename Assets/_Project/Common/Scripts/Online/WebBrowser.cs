@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.Common.Online
+namespace PenguinWars.Common.Online
 {
     /// <summary>
     /// 部屋コードのコピーを、ブラウザ版ではブラウザの機能で行う。
@@ -10,9 +10,9 @@ namespace MiniGame.Common.Online
     {
 #if UNITY_WEBGL && !UNITY_EDITOR
         [System.Runtime.InteropServices.DllImport("__Internal")]
-        private static extern void MiniGame_CopyText(string text);
+        private static extern void PenguinWars_CopyText(string text);
 
-        public static void CopyText(string text) => MiniGame_CopyText(text);
+        public static void CopyText(string text) => PenguinWars_CopyText(text);
 #else
         public static void CopyText(string text) => GUIUtility.systemCopyBuffer = text;
 #endif

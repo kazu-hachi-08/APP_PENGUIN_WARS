@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.Common.Core
+namespace PenguinWars.Common.Core
 {
     /// <summary>
     /// 型安全なSingleton MonoBehaviour基底クラス

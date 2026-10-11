@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using NUnit.Framework;
 
-namespace MiniGame.PenguinWars.Battle.Tests
+namespace PenguinWars.Battle.Tests
 {
     /// <summary>じぶんペンギンのきまり（段階・ポイント・Sanitize・数値への変換）</summary>
     public class CustomUnitRulesTests

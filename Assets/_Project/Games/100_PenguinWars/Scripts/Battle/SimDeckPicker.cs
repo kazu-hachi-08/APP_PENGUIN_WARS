@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// 検証用の編成。「そのステージを遊ぶ時点で解放されている」キャラから、役割が偏らないよう

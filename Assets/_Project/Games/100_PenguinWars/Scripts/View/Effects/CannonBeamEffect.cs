@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ペンギン砲の青いビーム（仕様書 §9）。城から届く先まで一気に伸び、その後細くなって消える。

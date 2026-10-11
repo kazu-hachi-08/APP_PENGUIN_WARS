@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.Common.Audio
+namespace PenguinWars.Common.Audio
 {
     /// <summary>
     /// SE素材が未用意の間、最低限の効果音をプログラムで生成して AudioManager へ登録する仮実装

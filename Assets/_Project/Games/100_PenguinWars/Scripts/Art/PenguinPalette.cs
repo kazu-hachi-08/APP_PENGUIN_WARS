@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars.Art
+namespace PenguinWars.Art
 {
     /// <summary>
     /// ドットパターンの1文字 → 色。敵味方の違いは「体の暗い部分(k)とチーム色(t/u)」の差し替えだけにする（仕様書 §7.2）。

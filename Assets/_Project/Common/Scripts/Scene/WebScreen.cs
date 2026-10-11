@@ -1,4 +1,4 @@
-namespace MiniGame.Common.Scene
+namespace PenguinWars.Common.Scene
 {
     /// <summary>
     /// ブラウザ版の表示枠をシーンの向きに合わせる。
@@ -17,9 +17,9 @@ namespace MiniGame.Common.Scene
 
 #if UNITY_WEBGL && !UNITY_EDITOR
         [System.Runtime.InteropServices.DllImport("__Internal")]
-        private static extern void MiniGame_SetAspect(int width, int height);
+        private static extern void PenguinWars_SetAspect(int width, int height);
 
-        private static void SetAspect(int width, int height) => MiniGame_SetAspect(width, height);
+        private static void SetAspect(int width, int height) => PenguinWars_SetAspect(width, height);
 #else
         private static void SetAspect(int width, int height) { }
 #endif

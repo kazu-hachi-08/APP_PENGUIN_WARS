@@ -1,10 +1,10 @@
 using System;
 using System.Collections;
-using MiniGame.Common.Core;
+using PenguinWars.Common.Core;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace MiniGame.Common.Scene
+namespace PenguinWars.Common.Scene
 {
     /// <summary>
     /// シーン非同期ロードおよび画面遷移マネージャー

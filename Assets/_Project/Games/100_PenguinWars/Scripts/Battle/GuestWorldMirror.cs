@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// オンラインのゲストが持つ「表示用の BattleWorld」に、ホストから届いた状態を左右反転して書き込む（仕様書 §10.2・§10.3）。

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle.Tests
+namespace PenguinWars.Battle.Tests
 {
     /// <summary>
     /// 戦闘テストで共通の進め方・探し方。各テストは using static で取り込み、呼び出しを短く保つ。

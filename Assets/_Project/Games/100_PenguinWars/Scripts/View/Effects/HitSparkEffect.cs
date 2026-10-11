@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>攻撃ヒットの小さい白いエフェクト（仕様書 §9）。一瞬大きく出てすぐしぼむ</summary>
     public class HitSparkEffect : PooledEffect

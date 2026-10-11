@@ -1,10 +1,10 @@
-using MiniGame.Editor;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Common.Editor;
+using PenguinWars.Battle;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>
     /// じぶんペンギンの作成画面の「のうりょく」タブ。みためタブ（.Custom.cs）と同じ領域に、上から

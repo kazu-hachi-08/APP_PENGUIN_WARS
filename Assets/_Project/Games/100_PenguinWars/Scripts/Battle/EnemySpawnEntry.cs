@@ -1,4 +1,4 @@
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// ステージの敵の出方1行。「条件を満たしてから StartTime 秒後に1体、その後 Interval 秒ごとに Count 体まで」出す。

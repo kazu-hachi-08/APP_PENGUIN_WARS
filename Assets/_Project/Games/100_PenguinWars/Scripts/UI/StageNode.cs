@@ -1,9 +1,9 @@
 using System;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ステージ選択のマス1つ。クリア済み・遊べる・ロックで色を変え、ボスステージは大きく赤くして章の山場だと分かるようにする。

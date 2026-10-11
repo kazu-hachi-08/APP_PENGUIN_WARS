@@ -1,9 +1,9 @@
 using System;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// ずかん・編成画面の一覧の1マス（仕様書 §2.0）。歩くペンギンと名前・左上の数値を出し、押されたら呼び出し元に知らせる。

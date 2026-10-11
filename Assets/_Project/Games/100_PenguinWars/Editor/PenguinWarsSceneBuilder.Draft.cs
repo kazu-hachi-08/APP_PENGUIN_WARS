@@ -1,9 +1,9 @@
-using MiniGame.Editor;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Common.Editor;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>オンライン対戦のドラフト画面（仕様書 §6）と編成確認（§2.2）。どちらも全画面で操作UIの上に被せる</summary>
     public static partial class PenguinWarsSceneBuilder

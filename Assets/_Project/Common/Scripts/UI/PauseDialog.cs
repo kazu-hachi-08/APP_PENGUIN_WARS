@@ -1,9 +1,9 @@
 using System;
-using MiniGame.Common.Audio;
+using PenguinWars.Common.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.Common.UI
+namespace PenguinWars.Common.UI
 {
     /// <summary>
     /// 一時停止（ポーズ）メニューダイアログ

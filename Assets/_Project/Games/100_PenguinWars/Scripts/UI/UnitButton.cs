@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// 出撃ボタン1つ（仕様書 §7.1）。アイコン・名前・コスト・再生産ゲージを描くだけで、出撃できるかの判定は UnitButtonBar が BattleWorld から読んで渡す

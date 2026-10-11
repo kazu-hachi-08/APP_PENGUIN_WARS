@@ -1,4 +1,4 @@
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// ステージの敵の城が撃つペンギン砲（ボスステージ用のギミック）。StageDefinition.EnemyCannon にオブジェクト初期化子で書く。

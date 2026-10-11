@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d880115c3cd30774da271f74cdc05824, type: 3}
   m_Name: Unit_022
-  m_EditorClassIdentifier: Assembly-CSharp::MiniGame.PenguinWars.PenguinUnitData
+  m_EditorClassIdentifier: Assembly-CSharp::PenguinWars.PenguinUnitData
   _no: 22
   _displayName: "\u30E0\u30AD\u30E0\u30AD\u30DA\u30F3\u30AE\u30F3"
   _role: 1

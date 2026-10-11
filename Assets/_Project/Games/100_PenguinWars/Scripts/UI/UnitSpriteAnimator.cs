@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// UI の Image でキャラのコマを順番に切り替える（ずかん用。仕様書 §2.0）。

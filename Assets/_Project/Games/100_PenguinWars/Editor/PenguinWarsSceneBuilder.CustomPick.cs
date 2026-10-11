@@ -1,8 +1,8 @@
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>ドラフトの後の「じぶんペンギン選択」。ドラフト画面と同じ並び・カードで作り、見た目をそろえる</summary>
     public static partial class PenguinWarsSceneBuilder

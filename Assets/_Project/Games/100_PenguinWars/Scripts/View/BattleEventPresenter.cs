@@ -1,8 +1,8 @@
 using System;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// BattleEvent を演出と音に振り分ける唯一の入口（仕様書 §9）。

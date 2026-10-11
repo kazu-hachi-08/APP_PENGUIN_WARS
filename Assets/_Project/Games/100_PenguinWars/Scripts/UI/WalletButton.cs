@@ -1,8 +1,8 @@
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>左下の働きペンギンボタンと、さかなの残り表示（仕様書 §4.2・§7.1）</summary>
     public class WalletButton : MonoBehaviour

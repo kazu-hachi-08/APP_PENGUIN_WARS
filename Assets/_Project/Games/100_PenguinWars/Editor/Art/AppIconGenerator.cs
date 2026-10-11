@@ -1,11 +1,11 @@
 using System.IO;
-using MiniGame.PenguinWars.Art;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Art;
+using PenguinWars.Battle;
 using UnityEditor;
 using UnityEditor.Build;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>
     /// アプリアイコン（仕様書 §7.4）: 空と雪の上に、かぶとと剣・盾の味方ペンギンを大きく描く。

@@ -1,8 +1,8 @@
-using MiniGame.Editor;
+using PenguinWars.Common.Editor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>
     /// 一人用のステージのリザルトと、その演出（★を1つずつ・NEW RECORD!・なかまになった！のカード）（仕様書 §2.1・§9）

@@ -1,12 +1,12 @@
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// 1キャラ分のデータ（仕様書 §5.1）。1体1アセットにして、2人で別々のキャラを足してもコンフリクトしないようにする
     /// </summary>
-    [CreateAssetMenu(fileName = "Unit_000", menuName = "MiniGame/PenguinWars/Unit Data")]
+    [CreateAssetMenu(fileName = "Unit_000", menuName = "PenguinWars/Unit Data")]
     public class PenguinUnitData : ScriptableObject
     {
         [Tooltip("仕様書 §5.5 のキャラNo。編成やオンライン同期はこの番号で指す")]

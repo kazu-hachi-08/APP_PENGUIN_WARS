@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>城とユニットの頭上のHPバー。中心ピボットの四角の左端を固定したまま横幅を縮めて割合を表す</summary>
     public class HpBarView : MonoBehaviour

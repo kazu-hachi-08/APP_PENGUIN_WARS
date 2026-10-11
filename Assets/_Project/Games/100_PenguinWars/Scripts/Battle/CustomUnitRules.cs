@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>
     /// じぶんペンギンのきまり（コストの段階・強化ポイント・触れる数値・能力枠・範囲攻撃）。

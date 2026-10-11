@@ -1,9 +1,9 @@
-using MiniGame.Editor;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Common.Editor;
+using PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>
     /// 一人用のステージ選択（仕様書 §2.1）。マスはひな形を1つだけ作り、中身は実行時に定義表から並べる。

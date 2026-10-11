@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>
     /// タイトルから開く「あそびかた」（仕様書 §2.0）。真ん中は何も置かず、後ろの戦場で流すデモが見えるようにする。

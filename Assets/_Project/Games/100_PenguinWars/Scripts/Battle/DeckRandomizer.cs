@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>ドラフトの候補選び（Pick）と出撃ボタンの並べ替え（SortByCost）</summary>
     public static class DeckRandomizer

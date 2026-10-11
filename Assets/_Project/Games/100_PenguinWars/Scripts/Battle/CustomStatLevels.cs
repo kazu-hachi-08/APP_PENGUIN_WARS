@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>じぶんペンギンで強化できる数値。画面で5行を同じコードで回せるよう enum で引く</summary>
     public enum CustomStat

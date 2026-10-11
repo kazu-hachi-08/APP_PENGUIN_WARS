@@ -1,6 +1,6 @@
 using System;
 
-namespace MiniGame.PenguinWars.Battle
+namespace PenguinWars.Battle
 {
     /// <summary>出撃ボタン1つ分の再生産（仕様書 §4.3）。ボタンのゲージはこの値を読んで描く</summary>
     public class DeckSlotState

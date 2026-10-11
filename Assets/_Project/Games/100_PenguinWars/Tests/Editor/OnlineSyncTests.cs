@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using NUnit.Framework;
-using static MiniGame.PenguinWars.Battle.Tests.BattleTestUtil;
+using static PenguinWars.Battle.Tests.BattleTestUtil;
 
-namespace MiniGame.PenguinWars.Battle.Tests
+namespace PenguinWars.Battle.Tests
 {
     /// <summary>オンライン対戦（§10.2）: 時間切れの判定と、ゲストへ送る状態・イベントの書き出し→読み込み</summary>
     public class OnlineSyncTests

@@ -1,7 +1,7 @@
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars.Editor
+namespace PenguinWars.Editor
 {
     /// <summary>カメラと戦場（空・遠くの山・地面・左右の城）。絵は FieldArtGenerator が作る</summary>
     public static partial class PenguinWarsSceneBuilder

@@ -1,12 +1,12 @@
 using System.Collections;
-using MiniGame.Common.Core;
-using MiniGame.Common.Online;
-using MiniGame.Common.Profile;
-using MiniGame.Common.UI;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Common.Core;
+using PenguinWars.Common.Online;
+using PenguinWars.Common.Profile;
+using PenguinWars.Common.UI;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// オンライン対戦（仕様書 §2.2・§10）の接続後の流れと決着。
@@ -160,7 +160,7 @@ namespace MiniGame.PenguinWars
         /// </summary>
         private void HandlePeerDisconnected()
         {
-            if (!IsOnline || Phase == PenguinWarsPhase.Finished || CurrentState == MiniGameState.Result) return;
+            if (!IsOnline || Phase == PenguinWarsPhase.Finished || CurrentState == GameState.Result) return;
 
             Phase = PenguinWarsPhase.Finished;
             if (_battleRunner.World != null) _battleRunner.SetRunning(false);

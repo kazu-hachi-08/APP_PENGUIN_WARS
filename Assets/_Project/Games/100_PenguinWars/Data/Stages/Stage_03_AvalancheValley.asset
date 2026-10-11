@@ -11,7 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62171a863a5c8504993a3b3e7c3c1f7c, type: 3}
   m_Name: Stage_03_AvalancheValley
-  m_EditorClassIdentifier: Assembly-CSharp::MiniGame.PenguinWars.PenguinStageData
+  m_EditorClassIdentifier: Assembly-CSharp::PenguinWars.PenguinStageData
   _displayName: "\u306A\u3060\u308C\u306E\u8C37"
   _fieldLength: 12
   _castleHp: 4500

@@ -1,13 +1,13 @@
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// オンライン対戦のステージ1つ分（仕様書 §3.4）。ドラフト後にホストが抽選する。
     /// 1ステージ1アセットにして、2人で別々のステージを調整してもぶつからないようにする
     /// </summary>
-    [CreateAssetMenu(fileName = "Stage", menuName = "MiniGame/PenguinWars/Stage")]
+    [CreateAssetMenu(fileName = "Stage", menuName = "PenguinWars/Stage")]
     public class PenguinStageData : ScriptableObject
     {
         [SerializeField] private string _displayName = "ステージ";

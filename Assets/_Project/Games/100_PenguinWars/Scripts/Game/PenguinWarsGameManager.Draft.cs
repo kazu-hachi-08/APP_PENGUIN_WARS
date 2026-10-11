@@ -1,9 +1,9 @@
 using System;
-using MiniGame.Common.Profile;
-using MiniGame.PenguinWars.Battle;
+using PenguinWars.Common.Profile;
+using PenguinWars.Battle;
 using UnityEngine;
 
-namespace MiniGame.PenguinWars
+namespace PenguinWars
 {
     /// <summary>
     /// オンライン対戦前のドラフト（仕様書 §6）と編成確認（§2.2）。
