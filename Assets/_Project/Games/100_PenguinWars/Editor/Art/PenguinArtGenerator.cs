@@ -30,9 +30,10 @@ namespace MiniGame.PenguinWars.Editor
             }
             FieldArtGenerator.GenerateAll();
             EffectArtGenerator.GenerateAll();
+            AppIconGenerator.Generate();
 
             AssetDatabase.SaveAssets();
-            Debug.Log($"{LogPrefix} ドット絵を生成しました（{count}体＋城・背景・演出）: {PenguinSpriteWriter.SpriteDirectory}");
+            Debug.Log($"{LogPrefix} ドット絵を生成しました（{count}体＋城・背景・演出・アプリアイコン）: {PenguinSpriteWriter.SpriteDirectory}");
         }
 
         private static bool GenerateUnit(PenguinUnitData unit)

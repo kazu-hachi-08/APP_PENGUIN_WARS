@@ -14,10 +14,10 @@
 - **プラットフォーム:** Android / Windows / ブラウザ（WebGL）。**横画面固定**（縦画面のレイアウトは考えなくてよい）
 - **オンライン:** Unity Relay + Netcode for GameObjects（ホストが戦闘を計算し、ゲストへ状態とイベントを送る）
 - **アーキテクチャの境界:**
-  - `Assets/_Project/Common/`: ミニゲーム集から持ち込んだ共通基盤（Scene, Input, UI, Audio, Online, Profile など）。ゲーム固有の処理はここに書かないこと。
+  - `Assets/_Project/Common/`: 共通基盤（Scene, Input, UI, Audio, Online, Profile など）。ゲーム固有の処理はここに書かないこと。
   - `Assets/_Project/Games/100_PenguinWars/`: ペンギン大戦争本体。
   - `Scripts/Battle/`（`MiniGame.PenguinWars.Battle.asmdef`）: **Unity に依存しない純C#**の戦闘ロジック（`noEngineReferences: true`）。`UnityEngine` や ScriptableObject を参照しないこと。乱数は `System.Random`。表示・音・通信は `BattleEvent` を介して外側（View / Game）で行う。
-- **フォルダ名・名前空間:** 切り出し前のまま（`MiniGame.*`、`Games/100_PenguinWars`）。勝手にリネームしないこと（Editor スクリプトに直書きパスがある）。
+- **フォルダ名・名前空間:** 現状のまま（`MiniGame.*`、`Games/100_PenguinWars`）。勝手にリネームしないこと（Editor スクリプトに直書きパスがある）。
 
 ## 3. Unity & C# 実装ガイドライン
 - **シーンはコードで生成:** `PenguinWarsScene.unity` は `PenguinWarsSceneBuilder` で生成する（`Tools > MiniGame > Rebuild PenguinWars`）。UI やオブジェクトを足すときはシーンを手で編集せず、SceneBuilder に追加してください。

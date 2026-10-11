@@ -2,7 +2,7 @@
 
 ## 1. 概要
 
-週末2人開発で長期的に作り込む単独アプリ（もとは「週末2人開発 2Dミニゲームプロジェクト」の番号100。リポジトリ `APP_MINIGAME` から切り出した）。にゃんこ大戦争風の横スクロール型タワーディフェンス。ペンギンを出撃させて敵の大群を押し返し、敵の城を落とす。
+週末2人開発で長期的に作り込む単独アプリ。にゃんこ大戦争風の横スクロール型タワーディフェンス。ペンギンを出撃させて敵の大群を押し返し、敵の城を落とす。
 
 | 項目 | 内容 |
 | --- | --- |
@@ -463,6 +463,11 @@ Data/Units/Unit_001〜050.asset（PenguinUnitData）＋ Data/PenguinUnitCatalog.
 * 背景はグラデーションの空・遠くの山・地面（`FieldArtGenerator`）。ステージごとに山と地面に色を付ける（一人用は定義表の `TintHex`、対戦はアセットの `Tint`）
 * ボスは表示だけ1.3倍に大きくする（当たり判定・射程は変えない）
 
+### 7.4 アプリアイコン
+
+* 空と雪の上に、かぶと＋剣と盾の味方（青）ペンギンを大きく描いたドット絵（`AppIconGenerator`、`Sprites/AppIcon.png`、1024px）
+* Rebuild のたびに作り直し、全プラットフォーム共通のアイコン（PlayerSettings の Default Icon）に設定する
+
 ---
 
 ## 8. ステージモード（1人）
@@ -737,7 +742,7 @@ BattleWorld.Step … 敵の出現・ボスの条件・敵の砲はここで進�
 PenguinWarsGameManager.Stage … 勝敗 → StageResult → StarRule（★）→ CampaignProgress に記録 → CampaignSave → リザルト
 ```
 * `Battle` は独立した asmdef（`noEngineReferences`）。ScriptableObject は参照せず、SO → `UnitStats` に変換して渡す。乱数は `System.Random`（シード指定可能）
-* 共通基盤（`Assets/_Project/Common/`）はミニゲーム集から持ち込んだもの。ペンギン大戦争のために変えたのは画面向き（横固定）・シーン名と、`AudioManager` の BGM だけ OFF（`IsBgmOff`）・`UIDialogBuilder.CreateVolumeSlider` の公開だけ
+* 共通基盤（`Assets/_Project/Common/`）は画面向き（横固定）・シーン名・`AudioManager` の BGM だけ OFF（`IsBgmOff`）・`UIDialogBuilder.CreateVolumeSlider` の公開を持つ。ゲーム固有の処理は置かない
 
 ### 11.2 フォルダ
 
@@ -814,7 +819,7 @@ Assets/_Project/Games/100_PenguinWars/
 | Editor/ | PenguinWarsSceneBuilder（.Field / .Battle / .Hud / .Controls / .Intro / .Effects / .Online / .Draft / .CustomPick / .VersusStages / .Title / .Zukan / .Guide / .Custom / .CustomStats / .StageSelect / .StageDetail / .StageResult / .Deck / .UiHelpers） | Scene生成（1ファイルが大きくならないよう partial で分割。`.VersusStages` は対戦のステージ、`.Custom` / `.CustomStats` はじぶんペンギンの作成画面、`.StageSelect` 以下は一人用、`.UiHelpers` は文字・画像・ボタン・全画面パネルを作る共通ヘルパー） |
 | | StageSimulationMenu | 検証ツールのメニュー（§8.9） |
 | | PenguinUnitAssetGenerator / UnitLooks | 50体のアセット生成（毎回上書き）／見た目の表 |
-| Editor/Art/ | PenguinArtGenerator / FieldArtGenerator / EffectArtGenerator / PenguinSpriteWriter | ドット絵を PNG に書き出す（ペンギンの合成は `Scripts/Art/` を呼ぶ） |
+| Editor/Art/ | PenguinArtGenerator / FieldArtGenerator / EffectArtGenerator / AppIconGenerator / PenguinSpriteWriter | ドット絵・アプリアイコンを PNG に書き出す（ペンギンの合成は `Scripts/Art/` を呼ぶ） |
 | Tests/Editor/ | BattleWorldTests / EconomyTests / CannonRewardTests / AbilityTests / AvalancheTests / UnitRosterTests / OnlineSyncTests / DraftTests / SideTests | 戦闘・お金・砲と撃破報酬・能力・なだれ・50体の数値・同期・ドラフト・陣営（共通の進め方・数え方は `BattleTestUtil`） |
 | | StageScriptTests / StageDefinitionTests / GimmickTests / CampaignTests / UnlockTests / DeckRulesTests / SimulatorTests | 敵の出方とボス・定義表の正しさ・ギミック・★とセーブ・解放（50体の網羅）・編成のきまり・検証ツール（決定的・1-1 はふつうで勝てる） |
 | | CustomUnitRulesTests / CustomUnitPresetsTests | じぶんペンギンの段階・`Sanitize`・数値計算・バランスの目安／3枠の JSON の読み書きとお手本（§14） |
@@ -824,7 +829,6 @@ Assets/_Project/Games/100_PenguinWars/
 | メニュー | 作るもの | 既にあるとき |
 | --- | --- | --- |
 | `Rebuild PenguinWars` | Scene・`Data/Units/` とカタログ・キャラ・戦場・演出の PNG。無ければ Balance も作る | Balance は上書きしない／キャラアセットは定義表の値で上書き／PNG は毎回すべて描き直す |
-| `Rebuild All` | 全ゲームの Scene と素材（PenguinWars も含む） | 各ゲームの Rebuild と同じ |
 | `PenguinWars > Simulate Stages` | 全ステージの自動プレイの表（`Temp/PenguinStageSim.md`。§8.9） | 毎回上書き |
 
 * ステージの定義表は純C#なので、変えても Rebuild は不要（再生すれば反映される）

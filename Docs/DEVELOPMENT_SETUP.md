@@ -40,7 +40,7 @@ Unity Hub の「Installs」タブから、対象バージョンに以下のモ�
 ```text
 Assets/
 ├── _Project/
-│   ├── Common/                  # ミニゲーム集から持ち込んだ共通基盤（MiniGame.* 名前空間）
+│   ├── Common/                  # 共通基盤（MiniGame.* 名前空間）
 │   │   ├── Scripts/             # Core / Audio / Input / Online / Profile / Scene / UI
 │   │   ├── Editor/              # 共通ダイアログのシーン生成・デバッグメニュー
 │   │   ├── Plugins/WebGL/       # ブラウザ版の名前入力・全画面（.jslib）
@@ -59,7 +59,7 @@ Docs/                            # 仕様書・開発手順
 Tools/Release/                   # Windows版のリリーススクリプト
 ```
 
-フォルダ名・名前空間はミニゲーム集から切り出したときのまま（Editor スクリプトに `Assets/_Project/Games/100_PenguinWars` の直書きパスがあるため、動かすときはまとめて直す）。
+フォルダ名・名前空間は `MiniGame.*`・`Games/100_PenguinWars` のまま（Editor スクリプトに `Assets/_Project/Games/100_PenguinWars` の直書きパスがあるため、動かすときはまとめて直す）。
 
 ---
 

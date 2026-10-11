@@ -1,7 +1,6 @@
 # ペンギン大戦争
 
 にゃんこ大戦争風の横スクロール型タワーディフェンス。ペンギンを出撃させて敵の大群を押し返し、敵の城を落とす。
-週末2人開発の「2Dミニゲーム集」（[APP_MINIGAME](https://github.com/kazu-hachi-08/APP_MINIGAME)）から単独アプリとして切り出した。
 
 * **ステージ（1人）**: 3章18ステージ。クリアで仲間が増え、★3つを集める
 * **オンライン対戦（2人）**: 部屋コードで友達と1対1。ドラフトで編成し、自分で作った「じぶんペンギン」も出せる
@@ -52,13 +51,13 @@
 
 ```text
 Assets/_Project/
-├── Common/                  # ミニゲーム集から持ち込んだ共通基盤（Scene / Input / UI / Audio / Online など）
+├── Common/                  # 共通基盤（Scene / Input / UI / Audio / Online など）
 └── Games/100_PenguinWars/   # ペンギン大戦争本体（Scripts / Editor / Data / Sprites / Tests）
 Docs/                        # 仕様書・開発手順
 Tools/Release/               # Windows版のリリーススクリプト
 ```
 
-* フォルダ名・名前空間（`MiniGame.*`）は切り出したときのまま
+* フォルダ名・名前空間は `MiniGame.*`・`Games/100_PenguinWars` のまま（Editor スクリプトに直書きパスがあるため）
 * 戦闘ロジック（`Scripts/Battle/`）は Unity に依存しない純C#（`MiniGame.PenguinWars.Battle.asmdef`）
 * シーン・キャラのデータ・ドット絵はコードから生成する（`Tools > MiniGame > Rebuild PenguinWars`）
 
