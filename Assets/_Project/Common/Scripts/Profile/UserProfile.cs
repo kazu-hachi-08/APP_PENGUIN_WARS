@@ -17,7 +17,7 @@ namespace MiniGame.Common.Profile
 
         /// <summary>
         /// 入力値を保存できる形に整える。
-        /// &lt; &gt; はゴルフ等のリッチテキスト（&lt;color&gt;）を壊すため取り除く。
+        /// &lt; &gt; はリッチテキスト（&lt;color&gt;）を壊すため取り除く。
         /// </summary>
         public static string Sanitize(string raw)
         {

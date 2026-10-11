@@ -44,13 +44,11 @@ namespace MiniGame.PenguinWars.Editor
         private static readonly Vector2 StartButtonSize = new Vector2(620f, 130f);
         private static readonly Vector2 StartButtonPosition = new Vector2(0f, -220f);
         private static readonly Vector2 TitleSubButtonSize = new Vector2(350f, 100f);
-        // 5つを 1920 幅に収める（ボタン幅 350 + 隙間 15）
-        private static readonly Vector2 ZukanButtonPosition = new Vector2(-730f, -380f);
-        private static readonly Vector2 CustomButtonPosition = new Vector2(-365f, -380f);
-        private static readonly Vector2 GuideButtonPosition = new Vector2(0f, -380f);
-        private static readonly Vector2 SettingsButtonPosition = new Vector2(365f, -380f);
-        private static readonly Vector2 BackButtonPosition = new Vector2(730f, -380f);
-        // 「じぶんペンギン」「メニューに戻る」が 350 幅で折り返さないよう、縮めてよい下限
+        // 5つを 1920 幅に収める（ボタン幅 350 + 隙間 15）。「終了」を隠す端末では残りが中央に寄るよう、並べるのはレイアウトに任せる
+        private static readonly Vector2 TitleSubButtonRowPosition = new Vector2(0f, -380f);
+        private static readonly Vector2 TitleSubButtonRowSize = new Vector2(1810f, 100f);
+        private const float TitleSubButtonSpacing = 15f;
+        // 「じぶんペンギン」が 350 幅で折り返さないよう、縮めてよい下限
         private const int TitleSubButtonMinFontSize = 32;
         private static readonly Color StartButtonColor = new Color(0.95f, 0.55f, 0.15f);
         private static readonly Color TitleSubButtonColor = new Color(0.18f, 0.26f, 0.4f, 0.95f);
@@ -82,13 +80,13 @@ namespace MiniGame.PenguinWars.Editor
             Text stars = CreateText(panelObj.transform, "Stars", TitleStarsFontSize, CenterAnchor, TitleStarsPosition, TitleStarsSize, MessageColor);
 
             Button start = CreateTitleButton(panelObj.transform, "Btn_Start", "スタート", StartButtonSize, StartButtonPosition, StartButtonColor);
-            Button zukan = CreateTitleButton(panelObj.transform, "Btn_Zukan", "ずかん", TitleSubButtonSize, ZukanButtonPosition, TitleSubButtonColor);
-            Button custom = CreateTitleButton(panelObj.transform, "Btn_Custom", "じぶんペンギン", TitleSubButtonSize, CustomButtonPosition, TitleSubButtonColor);
-            Button guide = CreateTitleButton(panelObj.transform, "Btn_Guide", "あそびかた", TitleSubButtonSize, GuideButtonPosition, TitleSubButtonColor);
-            Button settings = CreateTitleButton(panelObj.transform, "Btn_Settings", "設定", TitleSubButtonSize, SettingsButtonPosition, TitleSubButtonColor);
-            Button back = CreateTitleButton(panelObj.transform, "Btn_Back", "メニューに戻る", TitleSubButtonSize, BackButtonPosition, TitleSubButtonColor);
+            Transform subRow = CreateTitleSubButtonRow(panelObj.transform);
+            Button zukan = CreateTitleButton(subRow, "Btn_Zukan", "ずかん", TitleSubButtonSize, Vector2.zero, TitleSubButtonColor);
+            Button custom = CreateTitleButton(subRow, "Btn_Custom", "じぶんペンギン", TitleSubButtonSize, Vector2.zero, TitleSubButtonColor);
+            Button guide = CreateTitleButton(subRow, "Btn_Guide", "あそびかた", TitleSubButtonSize, Vector2.zero, TitleSubButtonColor);
+            Button settings = CreateTitleButton(subRow, "Btn_Settings", "設定", TitleSubButtonSize, Vector2.zero, TitleSubButtonColor);
+            Button quit = CreateTitleButton(subRow, "Btn_Quit", "終了", TitleSubButtonSize, Vector2.zero, TitleSubButtonColor);
             FitText(custom.GetComponentInChildren<Text>(), TitleSubButtonMinFontSize);
-            FitText(back.GetComponentInChildren<Text>(), TitleSubButtonMinFontSize);
             // ずかん・じぶんペンギン・設定はタイトルの上に重ねたいので、タイトルの子の一番最後に作る
             PenguinZukanPanel zukanPanel = CreateZukanPanel(panelObj.transform, catalog);
             CustomUnitPanel customPanel = CreateCustomUnitPanel(panelObj.transform);
@@ -101,11 +99,28 @@ namespace MiniGame.PenguinWars.Editor
             SerializedArray(so, "_paradeIcons", icons);
             so.ApplyModifiedPropertiesWithoutUndo();
             SetRefs(panel, ("_catalog", catalog), ("_logo", logo), ("_startButton", start), ("_settingsButton", settings),
-                ("_backButton", back), ("_settingsPanel", settingsPanel), ("_zukanButton", zukan), ("_zukanPanel", zukanPanel),
+                ("_quitButton", quit), ("_settingsPanel", settingsPanel), ("_zukanButton", zukan), ("_zukanPanel", zukanPanel),
                 ("_guideButton", guide), ("_guidePanel", guidePanel), ("_starsLabel", stars),
                 ("_customButton", custom), ("_customPanel", customPanel));
             panelObj.SetActive(false);
             return panel;
+        }
+
+        /// <summary>サブボタンの横一列。ボタンの大きさはそのまま使い、位置だけレイアウトに決めさせる</summary>
+        private static Transform CreateTitleSubButtonRow(Transform panel)
+        {
+            GameObject rowObj = UIDialogBuilder.CreateUIObject("SubButtons", panel);
+            RectTransform rect = rowObj.GetComponent<RectTransform>();
+            SetAnchor(rect, CenterAnchor, TitleSubButtonRowPosition);
+            rect.sizeDelta = TitleSubButtonRowSize;
+            var layout = rowObj.AddComponent<HorizontalLayoutGroup>();
+            layout.spacing = TitleSubButtonSpacing;
+            layout.childAlignment = TextAnchor.MiddleCenter;
+            layout.childControlWidth = false;
+            layout.childControlHeight = false;
+            layout.childForceExpandWidth = false;
+            layout.childForceExpandHeight = false;
+            return rowObj.transform;
         }
 
         /// <summary>ロゴと英字をひとまとめにして、一緒に揺らす</summary>

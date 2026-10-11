@@ -16,14 +16,14 @@ namespace MiniGame.Common.Online
     /// <summary>
     /// オンライン対戦の接続だけを担当する（部屋を作る／参加コードで入る／抜ける）。
     /// 通信経路は Unity Relay に任せ、NAT越えやIP入力をプレイヤーにさせない。
-    /// 試合中にやり取りする内容は各ミニゲームの通信クラス（卓球: OnlineMatchLink / サッカー: SoccerOnlineLink）が扱う。
+    /// 試合中にやり取りする内容はゲーム側の通信クラス（PenguinWarsOnlineLink）が扱う。
     ///
     /// 3人以上の部屋（HostAsync の maxPlayers が3以上）では、相手が来ても自動では始めず、
     /// ホストが StartMatch を呼んだときに参加順で席番号を配る。
     /// </summary>
     public class OnlineSession : MonoBehaviour
     {
-        /// <summary>1対1のミニゲーム（卓球・サッカー）の定員。引数を省略したときはこれまで通り2人部屋</summary>
+        /// <summary>1対1の対戦の定員。引数を省略したときは2人部屋</summary>
         public const int DefaultMaxPlayers = 2;
 
         private const string StartMessage = "session.start";

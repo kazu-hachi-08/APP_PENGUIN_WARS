@@ -44,7 +44,7 @@ namespace MiniGame.PenguinWars
         [SerializeField] private float _timeUpDuration = 1.5f;
 
         private MatchMode _mode = MatchMode.Stage;
-        // オンラインでは相手の端末が止まらないので、ポーズ画面を出しても試合は止めない（サッカーと同じ）
+        // オンラインでは相手の端末が止まらないので、ポーズ画面を出しても試合は止めない
         private bool _isOnlinePauseOpen;
 
         private bool IsOnline => _mode != MatchMode.Stage;

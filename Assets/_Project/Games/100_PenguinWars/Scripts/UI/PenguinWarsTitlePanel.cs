@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using MiniGame.Common.Profile;
+using MiniGame.Common.UI;
 using MiniGame.PenguinWars.Battle;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +10,7 @@ namespace MiniGame.PenguinWars
 {
     /// <summary>
     /// ペンギン大戦争のタイトル画面（仕様書 §2.0）。ロゴがふわふわ揺れ、ランダムなペンギンがぴょこぴょこ跳ねる。
-    /// 何を押したらどこへ進むかは GameManager が決める
+    /// 何を押したらどこへ進むかは GameManager が決める（「終了」だけはアプリを閉じるのでここで完結させる）
     /// </summary>
     public class PenguinWarsTitlePanel : MonoBehaviour
     {
@@ -22,12 +24,15 @@ namespace MiniGame.PenguinWars
         [SerializeField] private Button _customButton;
         [SerializeField] private Button _guideButton;
         [SerializeField] private Button _settingsButton;
-        [SerializeField] private Button _backButton;
+        [Tooltip("iOS（ガイドライン上非推奨）とブラウザ版（閉じられない）では隠す")]
+        [SerializeField] private Button _quitButton;
         [SerializeField] private PenguinWarsSettingsPanel _settingsPanel;
         [SerializeField] private PenguinZukanPanel _zukanPanel;
         [SerializeField] private CustomUnitPanel _customPanel;
         [Tooltip("タイトルの子ではなく Canvas 直下に置く。タイトルの幕を閉じて戦場を見せるため")]
         [SerializeField] private PenguinGuidePanel _guidePanel;
+        [Tooltip("対戦で名前を表示するため、未設定ならタイトルで必ず決めさせる")]
+        [SerializeField] private NameEntryDialog _nameEntryDialog;
 
         [Header("動き")]
         [SerializeField] private float _logoBobHeight = 12f;
@@ -38,14 +43,14 @@ namespace MiniGame.PenguinWars
         [SerializeField] private float _hopPhaseStep = 0.8f;
 
         private Action _onStart;
-        private Action _onBack;
         private Vector2 _logoBasePosition;
         private Vector2[] _iconBasePositions;
 
         private void Awake()
         {
             _startButton.onClick.AddListener(() => Close(_onStart));
-            _backButton.onClick.AddListener(() => Close(_onBack));
+            _quitButton.onClick.AddListener(ConfirmQuit);
+            _quitButton.gameObject.SetActive(CanQuit);
             _settingsButton.onClick.AddListener(OpenSettings);
             _zukanButton.onClick.AddListener(OpenZukan);
             _customButton.onClick.AddListener(OpenCustom);
@@ -56,16 +61,22 @@ namespace MiniGame.PenguinWars
             for (int i = 0; i < _paradeIcons.Length; i++) _iconBasePositions[i] = _paradeIcons[i].rectTransform.anchoredPosition;
         }
 
-        public void Show(Action onStart, Action onBack)
+#if UNITY_IOS || UNITY_WEBGL
+        private const bool CanQuit = false;
+#else
+        private const bool CanQuit = true;
+#endif
+
+        public void Show(Action onStart)
         {
             _onStart = onStart;
-            _onBack = onBack;
             PickParade();
             ShowStars();
             _settingsPanel.Hide();
             _zukanPanel.Hide();
             _customPanel.Hide();
             gameObject.SetActive(true);
+            if (!UserProfile.HasName) _nameEntryDialog.Show(onDecided: null);
         }
 
         private void Update()
@@ -133,6 +144,21 @@ namespace MiniGame.PenguinWars
             PenguinUiSound.Click();
             gameObject.SetActive(false);
             _guidePanel.Show(() => gameObject.SetActive(true));
+        }
+
+        private void ConfirmQuit()
+        {
+            PenguinUiSound.Click();
+            UIManager.Instance.ShowConfirmDialog("終了確認", "ゲームを終了しますか？", onConfirm: Quit);
+        }
+
+        private static void Quit()
+        {
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#else
+            Application.Quit();
+#endif
         }
 
         private void Close(Action next)
